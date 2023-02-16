@@ -13,9 +13,9 @@
       - Atacar
 	  - Arma por default (tal vez una rama)
 	    - Espada
-		- Hachas
-		- Martillos
-		- Recibir daño
+	      - Hachas
+	      - Martillos
+	      - Recibir daño
   - Escenarios
     - Primer escenario: En el bosque
   - Diseños
