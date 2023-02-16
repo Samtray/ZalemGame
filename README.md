@@ -1,8 +1,8 @@
 # ZalemGame
 Proyecto del juego Zalem
-----------------------------------------------------
-	ENTREGA PARA ESTE SEGUNDO PARCIAL
-----------------------------------------------------
+
+ENTREGA PARA ESTE SEGUNDO PARCIAL
+
 --> Sprites del personaje principal
 --> Mecanicas
 	--> Protagonista
@@ -30,9 +30,7 @@ Proyecto del juego Zalem
 		--> Sonidos de daño
 		--> Sonidos de daño recibido
 	
-----------------------------------------------------
-	ROLES
-----------------------------------------------------
+ROLES
 	--> Sam
 		--> Programar
 	--> Julian
