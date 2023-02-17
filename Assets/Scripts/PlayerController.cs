@@ -4,19 +4,20 @@ using UnityEngine;
 
 public class PlayerController : MonoBehaviour
 {
-    public float velocidad;
+    public float velocidadCaminar;
+    public float velocidadCorrer;
     public float velocidadMax;
     public float fuerzaSalto;
     public bool colPies = false;
 
-    private Rigidbody2D rPlayer;
-    private Animator aPlayer;
+    private Rigidbody2D rigidPlayer;
+    private Animator animatorPlayer;
     private float h;
     private bool miraDerecha = true;
     // Start is called before the first frame update
     void Start()
     {
-        rPlayer = GetComponent<Rigidbody2D>();
+        rigidPlayer = GetComponent<Rigidbody2D>();
         //aPlayer = GetComponent<Animator>();
     }
 
@@ -31,21 +32,21 @@ public class PlayerController : MonoBehaviour
         colPies = CheckGround.colPies;
 
         if (Input.GetButtonDown("Jump") && colPies) {
-            rPlayer.velocity = new Vector2(rPlayer.velocity.x, 0f);
-            rPlayer.AddForce(new Vector2(0, fuerzaSalto), ForceMode2D.Impulse);
+            rigidPlayer.velocity = new Vector2(rigidPlayer.velocity.x, 0f);
+            rigidPlayer.AddForce(new Vector2(0, fuerzaSalto), ForceMode2D.Impulse);
             
         }
 
-        float limiteVelocidad = Mathf.Clamp(rPlayer.velocity.x, -velocidadMax, velocidadMax);
-        rPlayer.velocity = new Vector2(limiteVelocidad, rPlayer.velocity.y);
+        float limiteVelocidad = Mathf.Clamp(rigidPlayer.velocity.x, -velocidadMax, velocidadMax);
+        rigidPlayer.velocity = new Vector2(limiteVelocidad, rigidPlayer.velocity.y);
 
     }
 
     private void FixedUpdate()
     {
         h = Input.GetAxisRaw("Horizontal");
-        rPlayer.AddForce(Vector2.right * velocidad * h);
-    }
+        rigidPlayer.AddForce(Vector2.right * velocidadCorrer * h);
+    }   
 
     public void giraPlayer(float horizontal) {
         if (horizontal > 0 && !miraDerecha || horizontal < 0 && miraDerecha) {
