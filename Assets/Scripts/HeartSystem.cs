@@ -1,12 +1,14 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class HeartSystem : MonoBehaviour
 {
     public GameObject[] hearts;
     private  int life;
     public bool dead = false;
+    public int sceneBuildIndex;
 
     public void Start()
     {
@@ -16,7 +18,7 @@ public class HeartSystem : MonoBehaviour
     void Update()
     {
         if (dead) {
-            // Codigo pa cuando se muera
+            SceneManager.LoadScene(sceneBuildIndex, LoadSceneMode.Single);
         }
     }
 

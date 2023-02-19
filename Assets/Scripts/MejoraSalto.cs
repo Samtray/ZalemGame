@@ -4,8 +4,8 @@ using UnityEngine;
 
 public class MejoraSalto : MonoBehaviour
 {
-    public float saltoLargo = 1.5f;
-    public float saltoCorto = 1f;
+    public float saltoLargo = 0f;
+    public float saltoCorto = 0f;
 
     Rigidbody2D rb;
     // Start is called before the first frame update

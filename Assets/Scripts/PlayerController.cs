@@ -4,11 +4,11 @@ using UnityEngine;
 
 public class PlayerController : MonoBehaviour
 {
-    public float velocidadCaminar;
     public float velocidadCorrer;
     public float velocidadMax;
     public float fuerzaSalto;
     public bool colPies = false;
+    public float friccionSuelo;
 
     private Rigidbody2D rigidPlayer;
     private Animator animatorPlayer;
@@ -37,8 +37,12 @@ public class PlayerController : MonoBehaviour
             
         }
 
-        float limiteVelocidad = Mathf.Clamp(rigidPlayer.velocity.x, -velocidadMax, velocidadMax);
-        rigidPlayer.velocity = new Vector2(limiteVelocidad, rigidPlayer.velocity.y);
+        if (h == 0 && colPies) {
+            Vector3 velocidadArreglada = rigidPlayer.velocity;
+            velocidadArreglada.x *= friccionSuelo;
+            velocidadArreglada.y *= friccionSuelo;
+            rigidPlayer.velocity = velocidadArreglada;
+        }
 
     }
 
@@ -46,6 +50,8 @@ public class PlayerController : MonoBehaviour
     {
         h = Input.GetAxisRaw("Horizontal");
         rigidPlayer.AddForce(Vector2.right * velocidadCorrer * h);
+        float limiteVelocidad = Mathf.Clamp(rigidPlayer.velocity.x, -velocidadMax, velocidadMax);
+        rigidPlayer.velocity = new Vector2(limiteVelocidad, rigidPlayer.velocity.y);
     }   
 
     public void giraPlayer(float horizontal) {
