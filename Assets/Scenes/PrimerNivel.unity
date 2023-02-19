@@ -563,10 +563,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   velocidadCorrer: 5
-  velocidadMax: 5
+  velocidadMax: 50
   fuerzaSalto: 7
   colPies: 0
-  friccionSuelo: 0.99
+  friccionSuelo: 0.85
 --- !u!114 &810206486
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -583,7 +583,7 @@ MonoBehaviour:
   - {fileID: 2073365172}
   - {fileID: 257690619}
   - {fileID: 1622837707}
-  dead: 1
+  dead: 0
   sceneBuildIndex: 1
 --- !u!1 &917675301
 GameObject:

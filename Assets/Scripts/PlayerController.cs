@@ -40,7 +40,6 @@ public class PlayerController : MonoBehaviour
         if (h == 0 && colPies) {
             Vector3 velocidadArreglada = rigidPlayer.velocity;
             velocidadArreglada.x *= friccionSuelo;
-            velocidadArreglada.y *= friccionSuelo;
             rigidPlayer.velocity = velocidadArreglada;
         }
 
