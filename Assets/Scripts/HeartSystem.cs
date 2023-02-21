@@ -6,8 +6,9 @@ using UnityEngine.SceneManagement;
 public class HeartSystem : MonoBehaviour
 {
     public GameObject[] hearts;
-    private  int life;
+    private int life;
     public bool dead = false;
+    public bool daño = false;
     public int sceneBuildIndex;
 
     public void Start()
@@ -17,20 +18,26 @@ public class HeartSystem : MonoBehaviour
 
     void Update()
     {
-        if (dead) {
-            SceneManager.LoadScene(sceneBuildIndex, LoadSceneMode.Single);
-        }
+        if (dead) SceneManager.LoadScene(sceneBuildIndex, LoadSceneMode.Single);
+        
+        daño = AplicarDaño.dañoRecibido;
+        Debug.Log(daño);
+        if (daño) TakeDamage(1);
     }
 
     public void TakeDamage(int damage) {
 
-        if (life >= 1) return;
+        if (life == 0) return;
 
-        life = -damage;
-        Destroy(hearts[life].gameObject);
-        
-        if (life < 1) {
-            dead = false;
+        if (life >= 1)
+        {
+            life -= damage;
+            Destroy(hearts[life].gameObject);
+
+            if (life < 1)
+            {
+                dead = true;
+            }
         }
     }
 }
