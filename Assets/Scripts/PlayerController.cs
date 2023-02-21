@@ -12,7 +12,7 @@ public class PlayerController : MonoBehaviour
 
     private Rigidbody2D rigidPlayer;
     private Animator animatorPlayer;
-    private float h;
+    private float horizontalInput;
     private bool miraDerecha = true;
     // Start is called before the first frame update
     void Start()
@@ -24,7 +24,7 @@ public class PlayerController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        giraPlayer(h);
+        giraPlayer(horizontalInput);
         //aPlayer.SetFloat("VelocidadX", Mathf.Abs(rPlayer.velocity.x));
         //aPlayer.SetFloat("VelocidadY", rPlayer.velocity.y);
         //aPlayer.SetBool("TocarSuelo", colPies);
@@ -32,25 +32,14 @@ public class PlayerController : MonoBehaviour
         colPies = CheckGround.colPies;
 
         if (Input.GetButtonDown("Jump") && colPies) {
-            rigidPlayer.velocity = new Vector2(rigidPlayer.velocity.x, 0f);
-            rigidPlayer.AddForce(new Vector2(0, fuerzaSalto), ForceMode2D.Impulse);
-            
+            jump(); 
         }
-
-        if (h == 0 && colPies) {
-            Vector3 velocidadArreglada = rigidPlayer.velocity;
-            velocidadArreglada.x *= friccionSuelo;
-            rigidPlayer.velocity = velocidadArreglada;
-        }
-
     }
 
     private void FixedUpdate()
     {
-        h = Input.GetAxisRaw("Horizontal");
-        rigidPlayer.AddForce(Vector2.right * velocidadCorrer * h);
-        float limiteVelocidad = Mathf.Clamp(rigidPlayer.velocity.x, -velocidadMax, velocidadMax);
-        rigidPlayer.velocity = new Vector2(limiteVelocidad, rigidPlayer.velocity.y);
+        horizontalInput = Input.GetAxisRaw("Horizontal");
+        moveCharacter(horizontalInput);
     }   
 
     public void giraPlayer(float horizontal) {
@@ -60,5 +49,15 @@ public class PlayerController : MonoBehaviour
             escalaGiro.x = escalaGiro.x * -1;
             transform.localScale = escalaGiro;
         }
+    }
+
+
+    private void jump(){
+        rigidPlayer.velocity = new Vector2(rigidPlayer.velocity.x, fuerzaSalto);
+
+    }
+
+    private void moveCharacter(float horizontalInput){
+        rigidPlayer.velocity = new Vector2(horizontalInput * velocidadCorrer, rigidPlayer.velocity.y);
     }
 }
