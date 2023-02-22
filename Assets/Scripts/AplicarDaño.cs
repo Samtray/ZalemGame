@@ -12,7 +12,6 @@ public class AplicarDaño : MonoBehaviour
         if (collision.gameObject.tag == "Demonio") {
             Debug.Log("Colisioné");
             dañoRecibido = true;
-
         }
     }
 
