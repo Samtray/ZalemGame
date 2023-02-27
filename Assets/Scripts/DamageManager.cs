@@ -10,6 +10,7 @@ public class DamageManager : MonoBehaviour
     public int sceneBuildIndex;
     private Rigidbody2D victimRigidbody;
     public Vector2 damageTakenForce;
+    public Vector2 negativeDamageTakenForce;
     public int invincibilityDuration;
     private bool invincible; 
     private SpriteRenderer spriteComponent;
@@ -42,12 +43,19 @@ public class DamageManager : MonoBehaviour
         }
         else if (!invincible){
             health -= damage;
-            victimRigidbody.AddForce(damageTakenForce);
+            if (PlayerController.miraDerecha)
+            {
+                victimRigidbody.AddForce(negativeDamageTakenForce, ForceMode2D.Impulse);
+            }
+            else {
+                victimRigidbody.AddForce(damageTakenForce, ForceMode2D.Impulse);
+            }
             StartCoroutine(setInvincibilityFrames(invincibilityDuration));
         }
     }
 
     public void toggleInvincibility(){
+        PlayerController.canMove = !PlayerController.canMove;
         invincible = !invincible;
         Debug.Log("setting invincibility to " + invincible.ToString());
     }

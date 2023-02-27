@@ -2065,16 +2065,36 @@ PrefabInstance:
       value: 15
       objectReference: {fileID: 0}
     - target: {fileID: 7766692120293775760, guid: 673480886313849488be39229678dd94, type: 3}
+      propertyPath: controlLostTime
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 7766692120293775760, guid: 673480886313849488be39229678dd94, type: 3}
       propertyPath: sceneBuildIndex
       value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 7766692120293775760, guid: 673480886313849488be39229678dd94, type: 3}
       propertyPath: damageTakenForce.x
-      value: 50
+      value: 100
       objectReference: {fileID: 0}
     - target: {fileID: 7766692120293775760, guid: 673480886313849488be39229678dd94, type: 3}
       propertyPath: damageTakenForce.y
-      value: 50
+      value: 100
+      objectReference: {fileID: 0}
+    - target: {fileID: 7766692120293775760, guid: 673480886313849488be39229678dd94, type: 3}
+      propertyPath: negativeDamageTakenForce.x
+      value: -100
+      objectReference: {fileID: 0}
+    - target: {fileID: 7766692120293775760, guid: 673480886313849488be39229678dd94, type: 3}
+      propertyPath: negativeDamageTakenForce.y
+      value: 100
+      objectReference: {fileID: 0}
+    - target: {fileID: 7766692120293775763, guid: 673480886313849488be39229678dd94, type: 3}
+      propertyPath: velocidadMax
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 7766692120293775763, guid: 673480886313849488be39229678dd94, type: 3}
+      propertyPath: friccionSuelo
+      value: 0.85
       objectReference: {fileID: 0}
     - target: {fileID: 7766692120293775764, guid: 673480886313849488be39229678dd94, type: 3}
       propertyPath: m_RootOrder
@@ -2119,6 +2139,14 @@ PrefabInstance:
     - target: {fileID: 7766692120293775764, guid: 673480886313849488be39229678dd94, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7766692120293775766, guid: 673480886313849488be39229678dd94, type: 3}
+      propertyPath: m_Mass
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 7766692120293775766, guid: 673480886313849488be39229678dd94, type: 3}
+      propertyPath: m_GravityScale
+      value: 3
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 673480886313849488be39229678dd94, type: 3}
