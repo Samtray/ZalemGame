@@ -2,42 +2,36 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using System.Linq;
+using UnityEngine.Events;
 
 public class HeartSystem : MonoBehaviour
 {
-    public GameObject[] hearts;
-    private int life;
-    public bool dead = false;
-    public bool daño = false;
-    public int sceneBuildIndex;
+    public DamageManager damageManager;
+    public GameObject heartPrefab; 
+    public List<GameObject> hearts;
+    public UnityEvent onPlayerDamage;
 
     public void Start()
     {
-        life = hearts.Length;
-    }
+        for (int i = 0; i < damageManager.health; i++){
 
-    void Update()
-    {
-        if (dead) SceneManager.LoadScene(sceneBuildIndex, LoadSceneMode.Single);
-        
-        daño = AplicarDaño.dañoRecibido;
-        Debug.Log(daño);
-        if (daño) TakeDamage(1);
-    }
+            GameObject heartInstance = Instantiate(heartPrefab, gameObject.transform);
+            
+            if(hearts.Count > 0){
 
-    public void TakeDamage(int damage) {
+                Vector2 heartPosition = heartInstance.transform.position;
+                GameObject lastHeartPrefab = hearts.Last(); 
+                RectTransform heartRect = lastHeartPrefab.GetComponent<RectTransform>();
+                float heartWidth = heartRect.localScale.x * heartRect.sizeDelta.x;
 
-        if (life == 0) return;
-
-        if (life >= 1)
-        {
-            life -= damage;
-            Destroy(hearts[life].gameObject);
-
-            if (life < 1)
-            {
-                dead = true;
+                heartRect.anchoredPosition = new Vector2((heartRect.anchoredPosition.x + ((heartWidth + 10) * hearts.Count)), heartRect.anchoredPosition.y);                
+                Debug.Log(heartRect.anchoredPosition.x.ToString());
             }
+            hearts.Add(heartInstance);
+
+            Debug.Log("heart collection " + hearts.Count);
         }
     }
+
 }
