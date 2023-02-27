@@ -2081,6 +2081,10 @@ PrefabInstance:
       value: 100
       objectReference: {fileID: 0}
     - target: {fileID: 7766692120293775760, guid: 673480886313849488be39229678dd94, type: 3}
+      propertyPath: invincibilityDuration
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7766692120293775760, guid: 673480886313849488be39229678dd94, type: 3}
       propertyPath: negativeDamageTakenForce.x
       value: -100
       objectReference: {fileID: 0}
