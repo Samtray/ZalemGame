@@ -14,7 +14,11 @@ AnimatorStateMachine:
     m_Position: {x: 430, y: 20, z: 0}
   - serializedVersion: 1
     m_State: {fileID: 4389048055146401152}
+<<<<<<< Updated upstream
     m_Position: {x: 450, y: 120, z: 0}
+=======
+    m_Position: {x: 430, y: 120, z: 0}
+>>>>>>> Stashed changes
   - serializedVersion: 1
     m_State: {fileID: 7152511168259518759}
     m_Position: {x: 170, y: 120, z: 0}
@@ -294,9 +298,12 @@ AnimatorStateTransition:
   - m_ConditionMode: 1
     m_ConditionEvent: TocarSuelo
     m_EventTreshold: 0
+<<<<<<< Updated upstream
   - m_ConditionMode: 4
     m_ConditionEvent: VelocidadX
     m_EventTreshold: 0.01
+=======
+>>>>>>> Stashed changes
   m_DstStateMachine: {fileID: 0}
   m_DstState: {fileID: 7152511168259518759}
   m_Solo: 0
@@ -378,7 +385,14 @@ AnimatorStateTransition:
   m_Conditions:
   - m_ConditionMode: 4
     m_ConditionEvent: VelocidadY
+<<<<<<< Updated upstream
     m_EventTreshold: 0.01
+=======
+    m_EventTreshold: 0
+  - m_ConditionMode: 1
+    m_ConditionEvent: TocarSuelo
+    m_EventTreshold: 0
+>>>>>>> Stashed changes
   m_DstStateMachine: {fileID: 0}
   m_DstState: {fileID: -4164504380033870153}
   m_Solo: 0
