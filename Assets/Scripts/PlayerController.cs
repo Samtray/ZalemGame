@@ -11,28 +11,39 @@ public class PlayerController : MonoBehaviour
     public float friccionSuelo;
 
     private Rigidbody2D rigidPlayer;
-    private Animator animatorPlayer;
+    private Animator animator;
     private float horizontalInput;
     private bool miraDerecha = true;
+    private string currentAnimaton;
+    private bool isJumpPressed;
+    const string PLAYER_IDLE = "Idle";
+    const string PLAYER_WALK = "Caminar";
+    const string PLAYER_JUMP = "Salto";
+
     // Start is called before the first frame update
     void Start()
     {
         rigidPlayer = GetComponent<Rigidbody2D>();
-        //aPlayer = GetComponent<Animator>();
+        animator = GetComponent<Animator>();
     }
 
     // Update is called once per frame
     void Update()
     {
+        animator.SetFloat("VelocidadX", Mathf.Abs(rigidPlayer.velocity.x));
+        animator.SetFloat("VelocidadY", rigidPlayer.velocity.y);
+        animator.SetBool("TocarSuelo", colPies);
+
         giraPlayer(horizontalInput);
-        //aPlayer.SetFloat("VelocidadX", Mathf.Abs(rPlayer.velocity.x));
-        //aPlayer.SetFloat("VelocidadY", rPlayer.velocity.y);
-        //aPlayer.SetBool("TocarSuelo", colPies);
-        // Update para crear el salto basico del personaje
         colPies = CheckGround.colPies;
 
+        if (Input.GetKeyDown(KeyCode.Space))
+        {
+            isJumpPressed = true;
+        }
+
         if (Input.GetButtonDown("Jump") && colPies) {
-            jump(); 
+            jump();
         }
     }
 
@@ -54,10 +65,17 @@ public class PlayerController : MonoBehaviour
 
     private void jump(){
         rigidPlayer.velocity = new Vector2(rigidPlayer.velocity.x, fuerzaSalto);
-
     }
 
     private void moveCharacter(float horizontalInput){
         rigidPlayer.velocity = new Vector2(horizontalInput * velocidadCorrer, rigidPlayer.velocity.y);
+    }
+
+    void ChangeAnimationState(string newAnimation)
+    {
+        if (currentAnimaton == newAnimation) return;
+
+        animator.Play(newAnimation);
+        currentAnimaton = newAnimation;
     }
 }
