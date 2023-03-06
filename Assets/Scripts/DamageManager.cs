@@ -15,6 +15,11 @@ public class DamageManager : MonoBehaviour
     private SpriteRenderer spriteComponent;
     public float speed;
     private Color baseColor;
+    private bool damaged;
+    public float damagedSeconds;
+    public int maxRecoilSpeed;
+    private int colissionDirection; 
+    public static Vector2 collision2DPosition;
     void Start()
     {
         maxHealth = 3;
@@ -36,14 +41,20 @@ public class DamageManager : MonoBehaviour
         }
     }
 
+    private void FixedUpdate() {
+        if(damaged){
+            victimRigidbody.AddForce(damageTakenForce * ((transform.position.x - collision2DPosition.x < 1)? -1 : 1) , ForceMode2D.Impulse);
+        }
+    }
+
     public void takeDamage(int damage){
         if(health == 0){
             SceneManager.LoadScene(sceneBuildIndex, LoadSceneMode.Single);
         }
         else if (!invincible){
             health -= damage;
-            victimRigidbody.AddForce(damageTakenForce);
             StartCoroutine(setInvincibilityFrames(invincibilityDuration));
+            StartCoroutine(toggleDamagedEffect(damagedSeconds));
         }
     }
 
@@ -56,5 +67,11 @@ public class DamageManager : MonoBehaviour
         toggleInvincibility();
         yield return new WaitForSeconds(invincibilityDuration);
         toggleInvincibility();
+    }
+
+    public IEnumerator toggleDamagedEffect(float damagedSeconds){
+        damaged = true; 
+        yield return new WaitForSeconds(damagedSeconds);
+        damaged = false;
     }
 }

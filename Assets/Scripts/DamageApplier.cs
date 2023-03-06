@@ -17,6 +17,7 @@ public class DamageApplier : MonoBehaviour
         if (collision.gameObject.tag == "Player") {
             Debug.Log("Colisioné");
             applyDamage(entityDamage);
+            DamageManager.collision2DPosition = transform.position;
         }
     }
 
