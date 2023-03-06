@@ -5334,16 +5334,24 @@ PrefabInstance:
       value: 15
       objectReference: {fileID: 0}
     - target: {fileID: 7766692120293775760, guid: 673480886313849488be39229678dd94, type: 3}
+      propertyPath: damagedSeconds
+      value: 0.15
+      objectReference: {fileID: 0}
+    - target: {fileID: 7766692120293775760, guid: 673480886313849488be39229678dd94, type: 3}
+      propertyPath: maxRecoilSpeed
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7766692120293775760, guid: 673480886313849488be39229678dd94, type: 3}
       propertyPath: sceneBuildIndex
       value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 7766692120293775760, guid: 673480886313849488be39229678dd94, type: 3}
       propertyPath: damageTakenForce.x
-      value: 50
+      value: 10
       objectReference: {fileID: 0}
     - target: {fileID: 7766692120293775760, guid: 673480886313849488be39229678dd94, type: 3}
       propertyPath: damageTakenForce.y
-      value: 50
+      value: 10
       objectReference: {fileID: 0}
     - target: {fileID: 7766692120293775764, guid: 673480886313849488be39229678dd94, type: 3}
       propertyPath: m_RootOrder
@@ -5389,5 +5397,6 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 7766692120293775753, guid: 673480886313849488be39229678dd94, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: 673480886313849488be39229678dd94, type: 3}
