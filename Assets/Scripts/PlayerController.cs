@@ -7,18 +7,14 @@ public class PlayerController : MonoBehaviour
     public float velocidadCorrer;
     public float velocidadMax;
     public float fuerzaSalto;
-    public bool colPies = false;
+    public bool terrenoCheck = false;
+    private bool platformCheck = false;
     public float friccionSuelo;
 
     private Rigidbody2D rigidPlayer;
     private Animator animator;
     private float horizontalInput;
     private bool miraDerecha = true;
-    private string currentAnimaton;
-    private bool isJumpPressed;
-    const string PLAYER_IDLE = "Idle";
-    const string PLAYER_WALK = "Caminar";
-    const string PLAYER_JUMP = "Salto";
 
     // Start is called before the first frame update
     void Start()
@@ -30,19 +26,18 @@ public class PlayerController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        animator.SetFloat("VelocidadX", Mathf.Abs(rigidPlayer.velocity.x));
-        animator.SetFloat("VelocidadY", rigidPlayer.velocity.y);
-        animator.SetBool("TocarSuelo", colPies);
 
         giraPlayer(horizontalInput);
-        colPies = CheckGround.colPies;
+        terrenoCheck = CheckGround.terreno;
+        platformCheck = CheckGround.platform;
 
-        if (Input.GetKeyDown(KeyCode.Space))
-        {
-            isJumpPressed = true;
-        }
+        animator.SetFloat("VelocidadX", Mathf.Abs(rigidPlayer.velocity.x));
+        animator.SetFloat("VelocidadY", rigidPlayer.velocity.y);
+        animator.SetBool("TocarSuelo", terrenoCheck);
+        animator.SetBool("TocarPlataforma",  platformCheck);
 
-        if (Input.GetButtonDown("Jump") && colPies) {
+
+        if (Input.GetButtonDown("Jump") && (terrenoCheck || platformCheck)) {
             jump();
         }
     }
@@ -71,11 +66,4 @@ public class PlayerController : MonoBehaviour
         rigidPlayer.velocity = new Vector2(horizontalInput * velocidadCorrer, rigidPlayer.velocity.y);
     }
 
-    void ChangeAnimationState(string newAnimation)
-    {
-        if (currentAnimaton == newAnimation) return;
-
-        animator.Play(newAnimation);
-        currentAnimaton = newAnimation;
-    }
 }

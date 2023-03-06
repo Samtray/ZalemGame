@@ -6,6 +6,7 @@ TagManager:
   tags:
   - Terreno
   - Demonio
+  - Platform
   layers:
   - Default
   - TransparentFX
