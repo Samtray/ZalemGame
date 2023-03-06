@@ -17,8 +17,6 @@ public class DamageManager : MonoBehaviour
     private Color baseColor;
     private bool damaged;
     public float damagedSeconds;
-    public int maxRecoilSpeed;
-    private int colissionDirection; 
     public static Vector2 collision2DPosition;
     void Start()
     {
@@ -43,7 +41,8 @@ public class DamageManager : MonoBehaviour
 
     private void FixedUpdate() {
         if(damaged){
-            victimRigidbody.AddForce(damageTakenForce * ((transform.position.x - collision2DPosition.x < 1)? -1 : 1) , ForceMode2D.Impulse);
+            Debug.Log(transform.position.x - collision2DPosition.x);
+            victimRigidbody.AddForce(damageTakenForce * ((transform.position.x - collision2DPosition.x < 0)? -1 : 1) , ForceMode2D.Impulse);
         }
     }
 
