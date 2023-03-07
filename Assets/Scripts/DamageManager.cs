@@ -10,7 +10,7 @@ public class DamageManager : MonoBehaviour
     public int sceneBuildIndex;
     private Rigidbody2D victimRigidbody;
     public Vector2 damageTakenForce;
-    public int invincibilityDuration;
+    public float invincibilityDuration;
     private bool invincible; 
     private SpriteRenderer spriteComponent;
     public float speed;
@@ -62,7 +62,7 @@ public class DamageManager : MonoBehaviour
         Debug.Log("setting invincibility to " + invincible.ToString());
     }
 
-    public IEnumerator setInvincibilityFrames(int invincibilityDuration){
+    public IEnumerator setInvincibilityFrames(float invincibilityDuration){
         toggleInvincibility();
         yield return new WaitForSeconds(invincibilityDuration);
         toggleInvincibility();
