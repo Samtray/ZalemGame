@@ -28,7 +28,7 @@ public class DamageApplier : MonoBehaviour
     }
 
     private void CheckDamageCollision(Collider2D collision) {
-        if (collision.gameObject.tag == "Player")
+        if (collision.gameObject.CompareTag("Player"))
         {
             Debug.Log("Colisioné");
             applyDamage(entityDamage);
