@@ -12,9 +12,24 @@ public class DamageApplier : MonoBehaviour
     private void Start() {
     }
 
+    private void Update()
+    {
+        
+    }
+
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if (collision.gameObject.tag == "Player") {
+        CheckDamageCollision(collision);
+    }
+
+    private void OnTriggerStay2D(Collider2D collision)
+    {
+        CheckDamageCollision(collision);
+    }
+
+    private void CheckDamageCollision(Collider2D collision) {
+        if (collision.gameObject.tag == "Player")
+        {
             Debug.Log("Colisioné");
             applyDamage(entityDamage);
             DamageManager.collision2DPosition = transform.position;
