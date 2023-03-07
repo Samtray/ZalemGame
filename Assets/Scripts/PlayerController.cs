@@ -14,7 +14,7 @@ public class PlayerController : MonoBehaviour
     private Rigidbody2D rigidPlayer;
     private Animator animator;
     private float horizontalInput;
-    private bool miraDerecha = true;
+    public static bool miraDerecha = true;
 
     // Start is called before the first frame update
     void Start()
