@@ -5351,7 +5351,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7766692120293775760, guid: 673480886313849488be39229678dd94, type: 3}
       propertyPath: damageTakenForce.y
-      value: 10
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 7766692120293775764, guid: 673480886313849488be39229678dd94, type: 3}
       propertyPath: m_RootOrder
