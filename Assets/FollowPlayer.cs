@@ -27,32 +27,5 @@ public class FollowPlayer : MonoBehaviour
                 speed * Time.deltaTime);
         }
 
-        GiraEnemigo();
-    }
-
-    public void GiraEnemigo()
-    {   
-        if (PlayerController.miraDerecha && !isLookingLeft)
-        {
-            FlipFlags();
-            ApplyTransform();
-
-        } else if (PlayerController.miraDerecha && !isLookingRight) {
-
-            FlipFlags();
-            ApplyTransform();
-
-        }
-    }
-
-    private void FlipFlags() {
-        isLookingLeft = !isLookingLeft;
-        isLookingRight = !isLookingRight;
-    }
-
-    private void ApplyTransform() {
-        Vector3 escalaGiro = transform.localScale;
-        escalaGiro.x *= -1;
-        transform.localScale = escalaGiro;
     }
 }
