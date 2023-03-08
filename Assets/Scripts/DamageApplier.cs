@@ -8,15 +8,6 @@ public class DamageApplier : MonoBehaviour
     public int entityDamage;
     public DamageManager damageManager;
 
-
-    private void Start() {
-    }
-
-    private void Update()
-    {
-        
-    }
-
     private void OnTriggerEnter2D(Collider2D collision)
     {
         CheckDamageCollision(collision);
@@ -31,7 +22,7 @@ public class DamageApplier : MonoBehaviour
         if (collision.gameObject.CompareTag("Player"))
         {
             Debug.Log("Colisioné");
-            applyDamage(entityDamage);
+            ApplyDamage(entityDamage);
             DamageManager.collision2DPosition = transform.position;
         }
     }
@@ -43,7 +34,7 @@ public class DamageApplier : MonoBehaviour
         }
     }*/
 
-    private void applyDamage(int damage){
+    private void ApplyDamage(int damage){
         damageManager.takeDamage(damage);
     }
 }
