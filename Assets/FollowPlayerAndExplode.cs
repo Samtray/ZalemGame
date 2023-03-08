@@ -49,8 +49,7 @@ public class FollowPlayerAndExplode : MonoBehaviour
 
     }
 
-    public IEnumerator ExplodeEnemy()
-    {
+    public IEnumerator ExplodeEnemy() {
         var animationTime = 1;
         yield return new WaitForSeconds(animationTime);
         DestroyGameObject();
