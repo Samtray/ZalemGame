@@ -18,6 +18,9 @@ public class DamageManager : MonoBehaviour
     private bool damaged;
     public float damagedSeconds;
     public static Vector2 collision2DPosition;
+
+    public delegate void onDamage(); 
+    public static onDamage onDamageDelegate; 
     void Start()
     {
         maxHealth = 3;
@@ -54,6 +57,7 @@ public class DamageManager : MonoBehaviour
             health -= damage;
             StartCoroutine(setInvincibilityFrames(invincibilityDuration));
             StartCoroutine(toggleDamagedEffect(damagedSeconds));
+            onDamageDelegate.Invoke();
         }
     }
 

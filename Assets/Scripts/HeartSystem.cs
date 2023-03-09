@@ -14,9 +14,12 @@ public class HeartSystem : MonoBehaviour
 
     public void Start()
     {
+        DamageManager.onDamageDelegate += removeLastHeart;
+
         for (int i = 0; i < damageManager.health; i++){
 
             GameObject heartInstance = Instantiate(heartPrefab, gameObject.transform);
+            hearts.Add(heartInstance);
             
             if(hearts.Count > 0){
 
@@ -26,11 +29,14 @@ public class HeartSystem : MonoBehaviour
                 float heartWidth = heartRect.localScale.x * heartRect.sizeDelta.x;
 
                 heartRect.anchoredPosition = new Vector2((heartRect.anchoredPosition.x + ((heartWidth + 10) * hearts.Count)), heartRect.anchoredPosition.y);                
-                Debug.Log(heartRect.anchoredPosition.x.ToString());
             }
-            hearts.Add(heartInstance);
+        }
+    }
 
-            Debug.Log("heart collection " + hearts.Count);
+    public void removeLastHeart(){
+        if (hearts.Count > 0){
+            Destroy(hearts[hearts.Count - 1]);
+            //hearts.RemoveAt(hearts.Count - 1);
         }
     }
 
