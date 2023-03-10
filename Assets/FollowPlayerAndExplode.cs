@@ -11,12 +11,12 @@ public class FollowPlayerAndExplode : MonoBehaviour
     private Animator animator;
     private SpriteRenderer spriteRenderer;
     public DamageManager damageManager;
+    private bool isPlayerInRange = false;
 
     void Start()
     {
         target = GameObject.FindGameObjectWithTag("Player").GetComponent<Transform>();
         animator = GetComponent<Animator>();
-
     }
 
     public void Awake()
@@ -24,11 +24,34 @@ public class FollowPlayerAndExplode : MonoBehaviour
         spriteRenderer = GetComponent<SpriteRenderer>();
     }
 
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        if (collision.gameObject.CompareTag("Player")) {
+            isPlayerInRange = true;
+        }
+    }
+
+    private void OnTriggerExit2D(Collider2D collision)
+    {
+        if (collision.gameObject.CompareTag("Player"))
+        {
+            isPlayerInRange = false;
+        }
+    }
+
     void Update()
     {
 
         spriteRenderer.flipX = target.transform.position.x < transform.position.x;
         var targetPosition = new Vector2(target.position.x, transform.position.y);
+
+        if (isPlayerInRange) {
+            CalculateDistance(targetPosition);
+        }
+
+    }
+
+    public void CalculateDistance(Vector2 targetPosition) {
         var stopMovementValue = 999f;
 
         if (Vector2.Distance(transform.position, target.position) > stoppingDistance)
@@ -39,14 +62,14 @@ public class FollowPlayerAndExplode : MonoBehaviour
                 speed * Time.deltaTime
             );
         }
-        else {
+        else
+        {
             stoppingDistance = stopMovementValue;
             animator.SetBool("Explosion", true);
             StartCoroutine(SetAnimation());
             StartCoroutine(ExplodeEnemy());
 
         }
-
     }
 
     public IEnumerator ExplodeEnemy() {
