@@ -12,6 +12,8 @@ public class FollowPlayerAndExplode : MonoBehaviour
     private SpriteRenderer spriteRenderer;
     public DamageManager damageManager;
     private bool isPlayerInRange = false;
+    public float reachDistance;
+    public int damage;
 
     void Start()
     {
@@ -86,8 +88,6 @@ public class FollowPlayerAndExplode : MonoBehaviour
 
     void CheckForDamage() {
 
-        var reachDistance = 2;
-        var damage = 2;
 
         if (Vector2.Distance(transform.position, target.position) < reachDistance){
             damageManager.takeDamage(damage);

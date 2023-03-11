@@ -7,7 +7,6 @@ public class DamageManager : MonoBehaviour
 {
     public int health;
     public int maxHealth; 
-    public int sceneBuildIndex;
     private Rigidbody2D victimRigidbody;
     public Vector2 damageTakenForce;
     public float invincibilityDuration;
@@ -51,7 +50,7 @@ public class DamageManager : MonoBehaviour
 
     public void takeDamage(int damage){
         if(health == 0){
-            SceneManager.LoadScene(sceneBuildIndex, LoadSceneMode.Single);
+            SceneManager.LoadScene("Moriste");
         }
         else if (!invincible){
             health -= damage;

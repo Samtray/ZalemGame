@@ -26,14 +26,6 @@ public class DamageApplier : MonoBehaviour
             DamageManager.collision2DPosition = transform.position;
         }
     }
-
-    /*private void OnTriggerExit2D(Collider2D collision)
-    {
-        if (collision.gameObject.tag == "Demonio") { 
-            Debug.Log("Descolisioné");
-        }
-    }*/
-
     private void ApplyDamage(int damage){
         damageManager.takeDamage(damage);
     }
