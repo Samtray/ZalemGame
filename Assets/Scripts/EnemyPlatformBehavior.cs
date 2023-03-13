@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class EnemyBehavior : MonoBehaviour
+public class EnemyPlatformBehavior : MonoBehaviour
 {
     [SerializeField] float moveSpeed = 1f;
 
@@ -35,6 +35,8 @@ public class EnemyBehavior : MonoBehaviour
     private void OnTriggerExit2D(Collider2D collision) {
         //Turn
         if (collision.gameObject.CompareTag("Player")) return;
+        if (collision.gameObject.CompareTag("Demonio")) return;
+        if (collision.gameObject.CompareTag("Bullet")) return;
 
         transform.localScale = new Vector2(
             -(Mathf.Sign(rigidEnemy.velocity.x)), 

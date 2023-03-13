@@ -43,7 +43,7 @@ public class DamageManager : MonoBehaviour
 
     private void FixedUpdate() {
         if(damaged){
-            Debug.Log(transform.position.x - collision2DPosition.x);
+            //Debug.Log(transform.position.x - collision2DPosition.x);
             victimRigidbody.AddForce(damageTakenForce * ((transform.position.x - collision2DPosition.x < 0)? -1 : 1) , ForceMode2D.Impulse);
         }
     }

@@ -11,7 +11,6 @@ public class FollowPlayerAndExplode : MonoBehaviour
     private Animator animator;
     private SpriteRenderer spriteRenderer;
     public DamageManager damageManager;
-    private bool isPlayerInRange = false;
     public float reachDistance;
     public int damage;
 
@@ -26,28 +25,15 @@ public class FollowPlayerAndExplode : MonoBehaviour
         spriteRenderer = GetComponent<SpriteRenderer>();
     }
 
-    private void OnTriggerEnter2D(Collider2D collision)
-    {
-        if (collision.gameObject.CompareTag("Player")) {
-            isPlayerInRange = true;
-        }
-    }
-
-    private void OnTriggerExit2D(Collider2D collision)
-    {
-        if (collision.gameObject.CompareTag("Player"))
-        {
-            isPlayerInRange = false;
-        }
-    }
-
     void Update()
     {
 
         spriteRenderer.flipX = target.transform.position.x < transform.position.x;
         var targetPosition = new Vector2(target.position.x, transform.position.y);
+        int followLimit = 8;
+        float distanceBetweenPLayerAndEnemy = Vector2.Distance(transform.position, target.transform.position);
 
-        if (isPlayerInRange) {
+        if (distanceBetweenPLayerAndEnemy < followLimit) {
             CalculateDistance(targetPosition);
         }
 

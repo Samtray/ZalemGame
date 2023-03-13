@@ -14,13 +14,15 @@ public class PlayerController : MonoBehaviour
     private Rigidbody2D rigidPlayer;
     private Animator animator;
     private float horizontalInput;
-    public static bool miraDerecha = true;
+    public static bool miraDerecha = false;
 
     // Start is called before the first frame update
     void Start()
     {
         rigidPlayer = GetComponent<Rigidbody2D>();
         animator = GetComponent<Animator>();
+        giraPlayer(0);
+        miraDerecha = false;
     }
 
     // Update is called once per frame
@@ -49,7 +51,7 @@ public class PlayerController : MonoBehaviour
     }   
 
     public void giraPlayer(float horizontal) {
-        if (horizontal > 0 && !miraDerecha || horizontal < 0 && miraDerecha) {
+        if (horizontal > 0 && miraDerecha || horizontal < 0 && !miraDerecha) {
             miraDerecha = !miraDerecha;
             Vector3 escalaGiro = transform.localScale;
             escalaGiro.x = escalaGiro.x * -1;
