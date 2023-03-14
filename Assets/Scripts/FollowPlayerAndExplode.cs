@@ -9,15 +9,18 @@ public class FollowPlayerAndExplode : MonoBehaviour
 
     private Transform target;
     private Animator animator;
+    private Rigidbody2D rigidEnemy;
     private SpriteRenderer spriteRenderer;
     public DamageManager damageManager;
     public float reachDistance;
     public int damage;
+    private bool canMove = true;
 
     void Start()
     {
         target = GameObject.FindGameObjectWithTag("Player").GetComponent<Transform>();
         animator = GetComponent<Animator>();
+        rigidEnemy = GetComponent<Rigidbody2D>();
     }
 
     public void Awake()
@@ -27,13 +30,24 @@ public class FollowPlayerAndExplode : MonoBehaviour
 
     void Update()
     {
+        Vector3 escalaGiro = transform.localScale;
 
-        spriteRenderer.flipX = target.transform.position.x < transform.position.x;
+        if (target.transform.position.x < transform.position.x)
+        {
+            escalaGiro.x = 1;
+        }
+        else { 
+            escalaGiro.x = -1;
+
+        }
+
+        transform.localScale = escalaGiro;
+
         var targetPosition = new Vector2(target.position.x, transform.position.y);
         int followLimit = 8;
-        float distanceBetweenPLayerAndEnemy = Vector2.Distance(transform.position, target.transform.position);
+        float distanceBetweenPlayerAndEnemy = Vector2.Distance(transform.position, target.transform.position);
 
-        if (distanceBetweenPLayerAndEnemy < followLimit) {
+        if (distanceBetweenPlayerAndEnemy < followLimit) {
             CalculateDistance(targetPosition);
         }
 
@@ -42,7 +56,8 @@ public class FollowPlayerAndExplode : MonoBehaviour
     public void CalculateDistance(Vector2 targetPosition) {
         var stopMovementValue = 999f;
 
-        if (Vector2.Distance(transform.position, target.position) > stoppingDistance)
+
+        if ((Vector2.Distance(transform.position, target.position) > stoppingDistance) && canMove)
         {
             transform.position = Vector2.MoveTowards(
                 transform.position,
@@ -75,7 +90,7 @@ public class FollowPlayerAndExplode : MonoBehaviour
     void CheckForDamage() {
 
 
-        if (Vector2.Distance(transform.position, target.position) < reachDistance){
+        if (Vector2.Distance(transform.position, target.position) < reachDistance) {
             damageManager.TakeDamage(damage);
         }
     }
@@ -83,5 +98,18 @@ public class FollowPlayerAndExplode : MonoBehaviour
     void DestroyGameObject()
     {
         Destroy(gameObject);
+    }
+
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        if (collision.gameObject.CompareTag("Terreno")){
+            canMove = false;
+        }
+
+    }
+
+    private void OnTriggerExit2D(Collider2D collision)
+    {
+        canMove = true;
     }
 }
