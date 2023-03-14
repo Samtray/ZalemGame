@@ -27,6 +27,6 @@ public class DamageApplier : MonoBehaviour
         }
     }
     private void ApplyDamage(int damage){
-        damageManager.takeDamage(damage);
+        damageManager.TakeDamage(damage);
     }
 }

@@ -32,6 +32,13 @@ public class DamageManager : MonoBehaviour
 
     private void Update()
     {
+
+
+        if (health == 0)
+        {
+            SceneManager.LoadScene("Moriste");
+        }
+
         if (invincible)
         {
             spriteComponent.color = Color.Lerp(Color.clear, baseColor, Mathf.PingPong(Time.time * speed, 1));
@@ -39,6 +46,7 @@ public class DamageManager : MonoBehaviour
         else {
             spriteComponent.color = baseColor;
         }
+
     }
 
     private void FixedUpdate() {
@@ -48,30 +56,32 @@ public class DamageManager : MonoBehaviour
         }
     }
 
-    public void takeDamage(int damage){
-        if(health == 0){
-            SceneManager.LoadScene("Moriste");
-        }
-        else if (!invincible){
+    public void TakeDamage(int damage){
+        
+        if (!invincible){
             health -= damage;
-            StartCoroutine(setInvincibilityFrames(invincibilityDuration));
-            StartCoroutine(toggleDamagedEffect(damagedSeconds));
+            StartCoroutine(SetInvincibilityFrames(invincibilityDuration));
+            StartCoroutine(ToggleDamagedEffect(damagedSeconds));
             onDamageDelegate.Invoke();
         }
     }
 
-    public void toggleInvincibility(){
+    public void InstaKill() {
+        health = 0;
+    }
+
+    public void ToggleInvincibility(){
         invincible = !invincible;
         Debug.Log("setting invincibility to " + invincible.ToString());
     }
 
-    public IEnumerator setInvincibilityFrames(float invincibilityDuration){
-        toggleInvincibility();
+    public IEnumerator SetInvincibilityFrames(float invincibilityDuration){
+        ToggleInvincibility();
         yield return new WaitForSeconds(invincibilityDuration);
-        toggleInvincibility();
+        ToggleInvincibility();
     }
 
-    public IEnumerator toggleDamagedEffect(float damagedSeconds){
+    public IEnumerator ToggleDamagedEffect(float damagedSeconds){
         damaged = true; 
         yield return new WaitForSeconds(damagedSeconds);
         damaged = false;

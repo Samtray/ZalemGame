@@ -76,7 +76,7 @@ public class FollowPlayerAndExplode : MonoBehaviour
 
 
         if (Vector2.Distance(transform.position, target.position) < reachDistance){
-            damageManager.takeDamage(damage);
+            damageManager.TakeDamage(damage);
         }
     }
 
