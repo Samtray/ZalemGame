@@ -36,7 +36,7 @@ public class HeartSystem : MonoBehaviour
     public void removeLastHeart(){
         if (hearts.Count > 0){
             Destroy(hearts[hearts.Count - 1]);
-            //hearts.RemoveAt(hearts.Count - 1);
+            hearts.RemoveAt(hearts.Count - 1);
         }
     }
 
