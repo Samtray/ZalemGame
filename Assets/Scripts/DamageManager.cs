@@ -19,7 +19,10 @@ public class DamageManager : MonoBehaviour
     public static Vector2 collision2DPosition;
 
     public delegate void onDamage(); 
-    public static onDamage onDamageDelegate; 
+    public static onDamage onDamageDelegate;
+    private bool exploded;
+    private bool explosionDirection;
+
     void Start()
     {
         maxHealth = 3;
@@ -50,9 +53,29 @@ public class DamageManager : MonoBehaviour
     }
 
     private void FixedUpdate() {
-        if(damaged){
-            Debug.Log(transform.position.x - collision2DPosition.x);
+        Debug.Log(transform.position.x - collision2DPosition.x);
+
+        if (damaged){
             victimRigidbody.AddForce(damageTakenForce * ((transform.position.x - collision2DPosition.x < 0)? -1 : 1) , ForceMode2D.Impulse);
+        }
+
+        if (exploded && explosionDirection)
+        {
+            victimRigidbody.AddForce(damageTakenForce * -1, ForceMode2D.Impulse);
+        }
+        else if (exploded && !explosionDirection) { 
+            victimRigidbody.AddForce(damageTakenForce * 1, ForceMode2D.Impulse);
+        }
+    }
+
+    public void TakeDamageByExplosion(int damage, bool direction) {
+        if (!invincible)
+        {
+            explosionDirection = direction;
+            health -= damage;
+            StartCoroutine(SetInvincibilityFrames(invincibilityDuration));
+            StartCoroutine(ToggleDamagedEffectExplosion(damagedSeconds));
+            onDamageDelegate.Invoke();
         }
     }
 
@@ -85,5 +108,12 @@ public class DamageManager : MonoBehaviour
         damaged = true; 
         yield return new WaitForSeconds(damagedSeconds);
         damaged = false;
+    }
+
+    public IEnumerator ToggleDamagedEffectExplosion(float damagedSeconds)
+    {
+        exploded = true;
+        yield return new WaitForSeconds(damagedSeconds);
+        exploded = false;
     }
 }
