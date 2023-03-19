@@ -5,7 +5,6 @@ using UnityEngine;
 public class EnemyPlatformBehavior : MonoBehaviour
 {
     [SerializeField] float moveSpeed = 1f;
-
     Rigidbody2D rigidEnemy;
     BoxCollider2D colliderEnemy;
     // Start is called before the first frame update

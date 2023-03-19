@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: cf6c0ab8177625342a2ff925554d1f53
+guid: 5c962753507a3784f8729f742cf3f5e0
 TextureImporter:
   internalIDToNameTable: []
   externalObjects: {}
@@ -141,7 +141,7 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: jump_0
+      name: walk 1_0
       rect:
         serializedVersion: 2
         x: 24
@@ -155,14 +155,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: b91ca5d81bc931644a66ff43213c129c
-      internalID: -73666792
+      spriteID: 27178c228fe557c4680a16313f115361
+      internalID: -1333094545
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: jump_1
+      name: walk 1_1
       rect:
         serializedVersion: 2
         x: 224
@@ -176,20 +176,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 2c032cc463fa31740900b2ace0b2ca7e
-      internalID: 1568829554
+      spriteID: 741b8c8c750a05d4cb70b3e1cb1ca994
+      internalID: -1993524644
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: jump_2
+      name: walk 1_2
       rect:
         serializedVersion: 2
         x: 424
-        y: 8
+        y: 4
         width: 80
-        height: 180
+        height: 184
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -197,20 +197,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 0bbc779c60743484c921392e7b1f2506
-      internalID: 402925773
+      spriteID: 9f9ceb16b9940db4a8cd34e12176cb7c
+      internalID: -1655950546
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: jump_3
+      name: walk 1_3
       rect:
         serializedVersion: 2
         x: 624
-        y: 12
+        y: 4
         width: 80
-        height: 176
+        height: 184
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -218,14 +218,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: b38a06bf10e9bf249bf3c5cc60539545
-      internalID: -1154869803
+      spriteID: 548ff0c0701b2e04b99abcc7a41eeaab
+      internalID: -562537189
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: jump_4
+      name: walk 1_4
       rect:
         serializedVersion: 2
         x: 824
@@ -239,14 +239,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: edc9a505940837e4c8346c20e7e5eb2f
-      internalID: 822523773
+      spriteID: 79c623bcd2288c743a5b3bccf6d1b30f
+      internalID: 1734634214
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: jump_5
+      name: walk 1_5
       rect:
         serializedVersion: 2
         x: 1024
@@ -260,29 +260,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 695691d44c24d3740a49fbf3753cb9fa
-      internalID: -1566113571
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: jump_6
-      rect:
-        serializedVersion: 2
-        x: 1224
-        y: 4
-        width: 80
-        height: 184
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: a63e0d83786014b44bb2ce1ba6424ff7
-      internalID: 1995728507
+      spriteID: 0e2218dae1bd9b64f891d4f876728cb3
+      internalID: -1280430542
       vertices: []
       indices: 
       edges: []
@@ -298,13 +277,12 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
-      jump_2: 402925773
-      jump_0: -73666792
-      jump_5: -1566113571
-      jump_1: 1568829554
-      jump_6: 1995728507
-      jump_3: -1154869803
-      jump_4: 822523773
+      walk 1_3: -562537189
+      walk 1_1: -1993524644
+      walk 1_4: 1734634214
+      walk 1_2: -1655950546
+      walk 1_0: -1333094545
+      walk 1_5: -1280430542
   spritePackingTag: 
   pSDRemoveMatte: 0
   pSDShowRemoveMatteOption: 0

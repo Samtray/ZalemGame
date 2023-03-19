@@ -22,6 +22,7 @@ public class DamageManager : Subject
     public static onDamage onDamageDelegate;
     private bool exploded;
     private bool explosionDirection;
+    public float disabledSeconds;
 
     //[SerializeField]
     //private HeartSystem healthUIObserver;
@@ -85,8 +86,10 @@ public class DamageManager : Subject
     public void TakeDamage(int damage){
         
         if (!invincible){
+            victimRigidbody.velocity = new Vector2(0, 0);
             health -= damage;
             StartCoroutine(SetInvincibilityFrames(invincibilityDuration));
+            StartCoroutine(basura(disabledSeconds));
             StartCoroutine(ToggleDamagedEffect(damagedSeconds));
             //notify(damage);
             onDamageDelegate.Invoke();
@@ -100,6 +103,13 @@ public class DamageManager : Subject
     public void ToggleInvincibility(){
         invincible = !invincible;
         //Debug.Log("setting invincibility to " + invincible.ToString());
+    }
+
+    public IEnumerator basura(float caca)
+    {
+        gameObject.GetComponent<PlayerController>().enabled = false;
+        yield return new WaitForSeconds(caca);
+        gameObject.GetComponent<PlayerController>().enabled = true; 
     }
 
     public IEnumerator SetInvincibilityFrames(float invincibilityDuration){

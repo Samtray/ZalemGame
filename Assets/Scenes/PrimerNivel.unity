@@ -197,14 +197,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 2143601842}
     m_Modifications:
-    - target: {fileID: 1843483888106802894, guid: 08b0a988efc7377408aaf62874b41ad3, type: 3}
-      propertyPath: damageManager
-      value: 
-      objectReference: {fileID: 810206486}
-    - target: {fileID: 1843483888106802894, guid: 08b0a988efc7377408aaf62874b41ad3, type: 3}
-      propertyPath: reachDistance
-      value: 2
-      objectReference: {fileID: 0}
     - target: {fileID: 1973896708498334337, guid: 08b0a988efc7377408aaf62874b41ad3, type: 3}
       propertyPath: m_RootOrder
       value: 6
@@ -253,6 +245,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: DiablitoExplosivo
       objectReference: {fileID: 0}
+    - target: {fileID: 8287284094252738832, guid: 08b0a988efc7377408aaf62874b41ad3, type: 3}
+      propertyPath: damageManager
+      value: 
+      objectReference: {fileID: 810206486}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 08b0a988efc7377408aaf62874b41ad3, type: 3}
 --- !u!4 &86400018 stripped
@@ -461,6 +457,14 @@ PrefabInstance:
     - target: {fileID: 378828557574154246, guid: d59cf53445717b3449f6d461b7edc3f5, type: 3}
       propertyPath: m_Name
       value: DiablitoVolador (3)
+      objectReference: {fileID: 0}
+    - target: {fileID: 378828557574154246, guid: d59cf53445717b3449f6d461b7edc3f5, type: 3}
+      propertyPath: m_Layer
+      value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 7342893880786824968, guid: d59cf53445717b3449f6d461b7edc3f5, type: 3}
+      propertyPath: m_Layer
+      value: 6
       objectReference: {fileID: 0}
     - target: {fileID: 8113227154951556060, guid: d59cf53445717b3449f6d461b7edc3f5, type: 3}
       propertyPath: m_RootOrder
@@ -946,7 +950,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 519420028}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -0.63, y: 0.059999943, z: -10}
+  m_LocalPosition: {x: -0.76699996, y: 0.059999943, z: -10}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -2090,10 +2094,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 2143601842}
     m_Modifications:
-    - target: {fileID: 8109983103663903680, guid: 395d438a460ce144db1bea1c2fc8d7c6, type: 3}
-      propertyPath: m_Enabled
-      value: 1
-      objectReference: {fileID: 0}
     - target: {fileID: 8109983103663903693, guid: 395d438a460ce144db1bea1c2fc8d7c6, type: 3}
       propertyPath: m_RootOrder
       value: 4
@@ -6709,6 +6709,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: DiablitoExplosivo
       objectReference: {fileID: 0}
+    - target: {fileID: 3412401259711542912, guid: 08b0a988efc7377408aaf62874b41ad3, type: 3}
+      propertyPath: m_Layer
+      value: 6
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 08b0a988efc7377408aaf62874b41ad3, type: 3}
 --- !u!4 &1218790924 stripped
@@ -6862,6 +6866,10 @@ PrefabInstance:
     - target: {fileID: 3412401259711542912, guid: 08b0a988efc7377408aaf62874b41ad3, type: 3}
       propertyPath: m_Name
       value: DiablitoExplosivo (2)
+      objectReference: {fileID: 0}
+    - target: {fileID: 3412401259711542912, guid: 08b0a988efc7377408aaf62874b41ad3, type: 3}
+      propertyPath: m_Layer
+      value: 6
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 08b0a988efc7377408aaf62874b41ad3, type: 3}
@@ -7333,6 +7341,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: DiablitoExplosivo (3)
       objectReference: {fileID: 0}
+    - target: {fileID: 3412401259711542912, guid: 08b0a988efc7377408aaf62874b41ad3, type: 3}
+      propertyPath: m_Layer
+      value: 6
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 08b0a988efc7377408aaf62874b41ad3, type: 3}
 --- !u!4 &1769972615 stripped
@@ -7354,6 +7366,14 @@ PrefabInstance:
     - target: {fileID: 378828557574154246, guid: d59cf53445717b3449f6d461b7edc3f5, type: 3}
       propertyPath: m_Name
       value: DiablitoVolador (2)
+      objectReference: {fileID: 0}
+    - target: {fileID: 378828557574154246, guid: d59cf53445717b3449f6d461b7edc3f5, type: 3}
+      propertyPath: m_Layer
+      value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 7342893880786824968, guid: d59cf53445717b3449f6d461b7edc3f5, type: 3}
+      propertyPath: m_Layer
+      value: 6
       objectReference: {fileID: 0}
     - target: {fileID: 7342893881208573249, guid: d59cf53445717b3449f6d461b7edc3f5, type: 3}
       propertyPath: m_Enabled
@@ -7702,7 +7722,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2105406158}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -1.63, y: -2.23, z: -10}
+  m_LocalPosition: {x: -1.767, y: -2.23, z: -10}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -7752,6 +7772,14 @@ PrefabInstance:
     - target: {fileID: 378828557574154246, guid: d59cf53445717b3449f6d461b7edc3f5, type: 3}
       propertyPath: m_Name
       value: DiablitoVolador (4)
+      objectReference: {fileID: 0}
+    - target: {fileID: 378828557574154246, guid: d59cf53445717b3449f6d461b7edc3f5, type: 3}
+      propertyPath: m_Layer
+      value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 7342893880786824968, guid: d59cf53445717b3449f6d461b7edc3f5, type: 3}
+      propertyPath: m_Layer
+      value: 6
       objectReference: {fileID: 0}
     - target: {fileID: 8113227154951556060, guid: d59cf53445717b3449f6d461b7edc3f5, type: 3}
       propertyPath: m_RootOrder
@@ -7813,7 +7841,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 2143601842}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Enemigos
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -7852,41 +7880,9 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 810206495, guid: 673480886313849488be39229678dd94, type: 3}
-      propertyPath: m_Enabled
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 7766692119267178106, guid: 673480886313849488be39229678dd94, type: 3}
-      propertyPath: m_Size.x
-      value: 0.39685392
-      objectReference: {fileID: 0}
-    - target: {fileID: 7766692119267178106, guid: 673480886313849488be39229678dd94, type: 3}
-      propertyPath: m_Offset.x
-      value: -1.698276
-      objectReference: {fileID: 0}
     - target: {fileID: 7766692120293775752, guid: 673480886313849488be39229678dd94, type: 3}
       propertyPath: m_Name
       value: Player
-      objectReference: {fileID: 0}
-    - target: {fileID: 7766692120293775760, guid: 673480886313849488be39229678dd94, type: 3}
-      propertyPath: speed
-      value: 15
-      objectReference: {fileID: 0}
-    - target: {fileID: 7766692120293775760, guid: 673480886313849488be39229678dd94, type: 3}
-      propertyPath: healthUI
-      value: 
-      objectReference: {fileID: 1932515766}
-    - target: {fileID: 7766692120293775760, guid: 673480886313849488be39229678dd94, type: 3}
-      propertyPath: healthUIObserver
-      value: 
-      objectReference: {fileID: 1932515771}
-    - target: {fileID: 7766692120293775760, guid: 673480886313849488be39229678dd94, type: 3}
-      propertyPath: damageTakenForce.y
-      value: -1.5
-      objectReference: {fileID: 0}
-    - target: {fileID: 7766692120293775763, guid: 673480886313849488be39229678dd94, type: 3}
-      propertyPath: velocidadCorrer
-      value: 7
       objectReference: {fileID: 0}
     - target: {fileID: 7766692120293775764, guid: 673480886313849488be39229678dd94, type: 3}
       propertyPath: m_RootOrder
@@ -7894,11 +7890,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7766692120293775764, guid: 673480886313849488be39229678dd94, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -1.63
+      value: -1.767
       objectReference: {fileID: 0}
     - target: {fileID: 7766692120293775764, guid: 673480886313849488be39229678dd94, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -2.13
+      value: -2.227
       objectReference: {fileID: 0}
     - target: {fileID: 7766692120293775764, guid: 673480886313849488be39229678dd94, type: 3}
       propertyPath: m_LocalPosition.z

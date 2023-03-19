@@ -29,8 +29,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 378828557574154246}
   m_LocalRotation: {x: 0, y: 1, z: 0, w: 0}
-  m_LocalPosition: {x: -0.04, y: 3.2, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalPosition: {x: -2.9309292, y: -5.93, z: 0.1268835}
+  m_LocalScale: {x: 1, y: 1, z: 0}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 7342893880786824969}
@@ -78,7 +78,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 1896650341, guid: dbc2bd9fe3e0d7048aecdb3a92d04720, type: 3}
+  m_Sprite: {fileID: -646123933, guid: dbc2bd9fe3e0d7048aecdb3a92d04720, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -147,7 +147,7 @@ BoxCollider2D:
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 1.6, y: 1.04}
+    oldSize: {x: 1.6, y: 0.8}
     newSize: {x: 1.6, y: 1.04}
     adaptiveTilingThreshold: 0.5
     drawMode: 0
@@ -180,7 +180,8 @@ GameObject:
   - component: {fileID: 7342893880786824969}
   - component: {fileID: 1365271221}
   - component: {fileID: 1365271220}
-  m_Layer: 0
+  - component: {fileID: 1841559636}
+  m_Layer: 6
   m_Name: Hitbox
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -242,3 +243,16 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   entityDamage: 1
   damageManager: {fileID: 0}
+--- !u!114 &1841559636
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7342893880786824968}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ec68c93ad9b9d654d97c4d5019549d0e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  death: 0

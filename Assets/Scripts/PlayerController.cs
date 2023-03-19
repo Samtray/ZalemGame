@@ -15,7 +15,9 @@ public class PlayerController : MonoBehaviour
     private Animator animator;
     private float horizontalInput;
     public static bool miraDerecha = false;
-
+    public GameObject attackPoint;
+    public float radius;
+    public LayerMask enemies;
     // Start is called before the first frame update
     void Start()
     {
@@ -42,6 +44,13 @@ public class PlayerController : MonoBehaviour
         if (Input.GetButtonDown("Jump") && (terrenoCheck || platformCheck)) {
             jump();
         }
+
+        if (Input.GetKeyDown(KeyCode.X))
+        {
+            animator.SetBool("Ataque", true);
+        }
+
+
     }
 
     private void FixedUpdate()
@@ -68,4 +77,23 @@ public class PlayerController : MonoBehaviour
         rigidPlayer.velocity = new Vector2(horizontalInput * velocidadCorrer, rigidPlayer.velocity.y);
     }
 
+    public void EndAttackAnimation() { 
+        animator.SetBool("Ataque", false);
+    }
+
+    public void Attack()
+    {
+        Collider2D[] enemy = Physics2D.OverlapCircleAll(attackPoint.transform.position, radius, enemies);
+
+        foreach (Collider2D enemyGameEnemy in enemy)
+        {
+            Debug.Log("Enemy Hit");
+            enemyGameEnemy.GetComponent<EnemyDeath>().death = true;
+        }
+    }
+
+    private void OnDrawGizmos()
+    {
+        Gizmos.DrawWireSphere(attackPoint.transform.position, radius);
+    }
 }
