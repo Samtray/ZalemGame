@@ -3,10 +3,10 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
-public class DamageManager : MonoBehaviour
+public class DamageManager : Subject
 {
     public int health;
-    public int maxHealth; 
+    private int maxHealth; 
     private Rigidbody2D victimRigidbody;
     public Vector2 damageTakenForce;
     public float invincibilityDuration;
@@ -23,6 +23,9 @@ public class DamageManager : MonoBehaviour
     private bool exploded;
     private bool explosionDirection;
 
+    //[SerializeField]
+    //private HeartSystem healthUIObserver;
+
     void Start()
     {
         maxHealth = 3;
@@ -31,12 +34,13 @@ public class DamageManager : MonoBehaviour
         victimRigidbody = gameObject.GetComponent<Rigidbody2D>();
         spriteComponent = gameObject.GetComponent<SpriteRenderer>();
         baseColor = spriteComponent.color;
+
+        //attach(healthUIObserver);
+        //Debug.Log("Attached " + healthUIObserver.ToString());
     }
 
     private void Update()
     {
-
-
         if (health == 0)
         {
             SceneManager.LoadScene("Moriste");
@@ -53,7 +57,6 @@ public class DamageManager : MonoBehaviour
     }
 
     private void FixedUpdate() {
-        Debug.Log(transform.position.x - collision2DPosition.x);
 
         if (damaged){
             victimRigidbody.AddForce(damageTakenForce * ((transform.position.x - collision2DPosition.x < 0)? -1 : 1) , ForceMode2D.Impulse);
@@ -85,6 +88,7 @@ public class DamageManager : MonoBehaviour
             health -= damage;
             StartCoroutine(SetInvincibilityFrames(invincibilityDuration));
             StartCoroutine(ToggleDamagedEffect(damagedSeconds));
+            //notify(damage);
             onDamageDelegate.Invoke();
         }
     }

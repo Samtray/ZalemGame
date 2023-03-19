@@ -5,7 +5,7 @@ using UnityEngine.SceneManagement;
 using System.Linq;
 using UnityEngine.Events;
 
-public class HeartSystem : MonoBehaviour
+public class HeartSystem : Observer
 {
     public DamageManager damageManager;
     public GameObject heartPrefab; 
@@ -38,6 +38,10 @@ public class HeartSystem : MonoBehaviour
             Destroy(hearts[hearts.Count - 1]);
             hearts.RemoveAt(hearts.Count - 1);
         }
+    }
+
+    public override void update(int payload) {
+        Debug.Log("Took " + payload + " damage");
     }
 
 }

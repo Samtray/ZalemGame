@@ -7489,7 +7489,7 @@ Canvas:
   m_SortingBucketNormalizedSize: 0
   m_AdditionalShaderChannelsFlag: 0
   m_SortingLayerID: 0
-  m_SortingOrder: 0
+  m_SortingOrder: 2
   m_TargetDisplay: 0
 --- !u!224 &1932515770
 RectTransform:
@@ -7864,6 +7864,14 @@ PrefabInstance:
       propertyPath: speed
       value: 15
       objectReference: {fileID: 0}
+    - target: {fileID: 7766692120293775760, guid: 673480886313849488be39229678dd94, type: 3}
+      propertyPath: healthUI
+      value: 
+      objectReference: {fileID: 1932515766}
+    - target: {fileID: 7766692120293775760, guid: 673480886313849488be39229678dd94, type: 3}
+      propertyPath: healthUIObserver
+      value: 
+      objectReference: {fileID: 1932515771}
     - target: {fileID: 7766692120293775763, guid: 673480886313849488be39229678dd94, type: 3}
       propertyPath: velocidadCorrer
       value: 7
