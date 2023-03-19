@@ -7856,6 +7856,14 @@ PrefabInstance:
       propertyPath: m_Enabled
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 7766692119267178106, guid: 673480886313849488be39229678dd94, type: 3}
+      propertyPath: m_Size.x
+      value: 0.39685392
+      objectReference: {fileID: 0}
+    - target: {fileID: 7766692119267178106, guid: 673480886313849488be39229678dd94, type: 3}
+      propertyPath: m_Offset.x
+      value: -1.698276
+      objectReference: {fileID: 0}
     - target: {fileID: 7766692120293775752, guid: 673480886313849488be39229678dd94, type: 3}
       propertyPath: m_Name
       value: Player
@@ -7872,6 +7880,10 @@ PrefabInstance:
       propertyPath: healthUIObserver
       value: 
       objectReference: {fileID: 1932515771}
+    - target: {fileID: 7766692120293775760, guid: 673480886313849488be39229678dd94, type: 3}
+      propertyPath: damageTakenForce.y
+      value: -1.5
+      objectReference: {fileID: 0}
     - target: {fileID: 7766692120293775763, guid: 673480886313849488be39229678dd94, type: 3}
       propertyPath: velocidadCorrer
       value: 7
