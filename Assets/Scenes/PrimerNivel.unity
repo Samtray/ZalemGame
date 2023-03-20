@@ -460,7 +460,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 378828557574154246, guid: d59cf53445717b3449f6d461b7edc3f5, type: 3}
       propertyPath: m_Layer
-      value: 6
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 7342893880786824968, guid: d59cf53445717b3449f6d461b7edc3f5, type: 3}
       propertyPath: m_Layer
@@ -1045,7 +1045,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8109983103663903695, guid: 395d438a460ce144db1bea1c2fc8d7c6, type: 3}
       propertyPath: m_Name
-      value: DiablitoMetralleta
+      value: DiablitoMetralleta (2)
       objectReference: {fileID: 0}
     - target: {fileID: 8109983104044426363, guid: 395d438a460ce144db1bea1c2fc8d7c6, type: 3}
       propertyPath: damageManager
@@ -6707,11 +6707,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3412401259711542912, guid: 08b0a988efc7377408aaf62874b41ad3, type: 3}
       propertyPath: m_Name
-      value: DiablitoExplosivo
+      value: DiablitoExplosivo (4)
       objectReference: {fileID: 0}
     - target: {fileID: 3412401259711542912, guid: 08b0a988efc7377408aaf62874b41ad3, type: 3}
       propertyPath: m_Layer
-      value: 6
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8287284094252738832, guid: 08b0a988efc7377408aaf62874b41ad3, type: 3}
       propertyPath: damageManager
@@ -6873,7 +6873,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3412401259711542912, guid: 08b0a988efc7377408aaf62874b41ad3, type: 3}
       propertyPath: m_Layer
-      value: 6
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8287284094252738832, guid: 08b0a988efc7377408aaf62874b41ad3, type: 3}
       propertyPath: damageManager
@@ -7351,7 +7351,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3412401259711542912, guid: 08b0a988efc7377408aaf62874b41ad3, type: 3}
       propertyPath: m_Layer
-      value: 6
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8287284094252738832, guid: 08b0a988efc7377408aaf62874b41ad3, type: 3}
       propertyPath: damageManager
@@ -7381,7 +7381,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 378828557574154246, guid: d59cf53445717b3449f6d461b7edc3f5, type: 3}
       propertyPath: m_Layer
-      value: 6
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 7342893880786824968, guid: d59cf53445717b3449f6d461b7edc3f5, type: 3}
       propertyPath: m_Layer
@@ -7787,7 +7787,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 378828557574154246, guid: d59cf53445717b3449f6d461b7edc3f5, type: 3}
       propertyPath: m_Layer
-      value: 6
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 7342893880786824968, guid: d59cf53445717b3449f6d461b7edc3f5, type: 3}
       propertyPath: m_Layer
