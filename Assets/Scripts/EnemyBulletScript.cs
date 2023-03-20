@@ -28,7 +28,7 @@ public class EnemyBulletScript : MonoBehaviour
     {
         bulletTimer += Time.deltaTime;
 
-        if (bulletTimer > 5) {
+        if (bulletTimer > 10) {
             Destroy(gameObject);
         }
     }
