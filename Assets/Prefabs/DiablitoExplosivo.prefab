@@ -122,7 +122,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   speed: 2
   stoppingDistance: 1
-  damageManager: {fileID: 0}
+  healthManager: {fileID: 0}
   reachDistance: 2
   damage: 1
 --- !u!50 &529650538

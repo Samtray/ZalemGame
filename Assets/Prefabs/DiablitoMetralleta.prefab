@@ -264,7 +264,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   entityDamage: 1
-  damageManager: {fileID: 0}
+  healthManager: {fileID: 0}
 --- !u!61 &8109983104044426362
 BoxCollider2D:
   m_ObjectHideFlags: 0

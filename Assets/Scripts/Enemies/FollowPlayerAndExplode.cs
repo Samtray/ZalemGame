@@ -11,7 +11,7 @@ public class FollowPlayerAndExplode : MonoBehaviour
     private Animator animator;
     private Rigidbody2D rigidEnemy;
     private SpriteRenderer spriteRenderer;
-    public DamageManager damageManager;
+    public HealthManager healthManager;
     public float reachDistance;
     public int damage;
     private bool canMove = true;
@@ -92,10 +92,10 @@ public class FollowPlayerAndExplode : MonoBehaviour
 
         if (Vector2.Distance(transform.position, target.position) < reachDistance) {
             if (target.transform.position.x < transform.position.x) {
-                damageManager.TakeDamageByExplosion(damage, true);
+                healthManager.TakeDamageByExplosion(damage, true);
             }
             else {
-                damageManager.TakeDamageByExplosion(damage, false);
+                healthManager.TakeDamageByExplosion(damage, false);
             }
         }
     }

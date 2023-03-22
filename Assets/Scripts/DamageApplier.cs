@@ -6,7 +6,7 @@ public class DamageApplier : MonoBehaviour
 {
 
     public int entityDamage;
-    public DamageManager damageManager;
+    public HealthManager healthManager;
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
@@ -23,10 +23,10 @@ public class DamageApplier : MonoBehaviour
         {
             Debug.Log("Colisioné");
             ApplyDamage(entityDamage);
-            DamageManager.collision2DPosition = transform.position;
+            HealthManager.collision2DPosition = transform.position;
         }
     }
     private void ApplyDamage(int damage){
-        damageManager.TakeDamage(damage);
+        healthManager.TakeDamage(damage);
     }
 }

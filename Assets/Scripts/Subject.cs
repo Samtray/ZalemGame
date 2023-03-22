@@ -6,17 +6,17 @@ public abstract class Subject : MonoBehaviour
 {
     List<Observer> observers;
     
-    public void attach(Observer observer){
+    public void Attach(Observer observer){
         this.observers.Add(observer); 
     }
 
-    public void dettach(Observer observer){
+    public void Dettach(Observer observer){
         this.observers.Remove(observer);
     }
 
-    public void notify(int payload){
+    public void Notify(int payload){
         Debug.Log(observers.ToString());
-        foreach(Observer observer in this.observers){
+        foreach(Observer observer in observers){
             observer.update(payload);
         }
     }

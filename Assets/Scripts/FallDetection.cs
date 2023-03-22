@@ -5,18 +5,18 @@ using UnityEngine;
 public class FallDetection : MonoBehaviour
 {
     public GameObject player;
-    public DamageManager damageManager;
+    public HealthManager healthManager;
 
     private void Start()
     {
         player = GameObject.FindGameObjectWithTag("Player");
-        damageManager = player.GetComponent<DamageManager>();
+        healthManager = player.GetComponent<HealthManager>();
     }
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
         if (collision.gameObject.CompareTag("Player")) {
-            damageManager.InstaKill();
+            healthManager.InstaKill();
         }
     }
 }

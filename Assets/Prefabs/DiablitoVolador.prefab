@@ -242,7 +242,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   entityDamage: 1
-  damageManager: {fileID: 0}
+  healthManager: {fileID: 0}
 --- !u!114 &1841559636
 MonoBehaviour:
   m_ObjectHideFlags: 0

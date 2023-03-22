@@ -3,10 +3,10 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
-public class DamageManager : Subject
+public class HealthManager : Subject
 {
     public int health;
-    private int maxHealth; 
+    private int initialHealth; 
     private Rigidbody2D victimRigidbody;
     public Vector2 damageTakenForce;
     public float invincibilityDuration;
@@ -18,8 +18,8 @@ public class DamageManager : Subject
     public float damagedSeconds;
     public static Vector2 collision2DPosition;
 
-    public delegate void onDamage(); 
-    public static onDamage onDamageDelegate;
+    public delegate void onUpdate(); 
+    public static onUpdate onHealthUpdate;
     private bool exploded;
     private bool explosionDirection;
     public float disabledSeconds;
@@ -29,9 +29,9 @@ public class DamageManager : Subject
 
     void Start()
     {
-        maxHealth = 3;
+        initialHealth = 3;
         invincible = false;
-        health = maxHealth;
+        health = initialHealth;
         victimRigidbody = gameObject.GetComponent<Rigidbody2D>();
         spriteComponent = gameObject.GetComponent<SpriteRenderer>();
         baseColor = spriteComponent.color;
@@ -79,8 +79,14 @@ public class DamageManager : Subject
             health -= damage;
             StartCoroutine(SetInvincibilityFrames(invincibilityDuration));
             StartCoroutine(ToggleDamagedEffectExplosion(damagedSeconds));
-            onDamageDelegate.Invoke();
+            onHealthUpdate.Invoke();
         }
+    }
+
+    public void GainHealth(int healthAmount) {
+
+        health += healthAmount;
+        onHealthUpdate.Invoke();
     }
 
     public void TakeDamage(int damage){
@@ -89,10 +95,10 @@ public class DamageManager : Subject
             victimRigidbody.velocity = new Vector2(0, 0);
             health -= damage;
             StartCoroutine(SetInvincibilityFrames(invincibilityDuration));
-            StartCoroutine(basura(disabledSeconds));
+            StartCoroutine(DisablePlayerController(disabledSeconds));
             StartCoroutine(ToggleDamagedEffect(damagedSeconds));
             //notify(damage);
-            onDamageDelegate.Invoke();
+            onHealthUpdate.Invoke();
         }
     }
 
@@ -105,10 +111,10 @@ public class DamageManager : Subject
         //Debug.Log("setting invincibility to " + invincible.ToString());
     }
 
-    public IEnumerator basura(float caca)
+    public IEnumerator DisablePlayerController(float disabledDuration)
     {
         gameObject.GetComponent<PlayerController>().enabled = false;
-        yield return new WaitForSeconds(caca);
+        yield return new WaitForSeconds(disabledDuration);
         gameObject.GetComponent<PlayerController>().enabled = true; 
     }
 

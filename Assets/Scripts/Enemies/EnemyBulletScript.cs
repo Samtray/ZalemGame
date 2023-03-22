@@ -8,14 +8,14 @@ public class EnemyBulletScript : MonoBehaviour
     private Rigidbody2D rigidBody;
     public float force;
     private float bulletTimer;
-    public DamageManager damageManager;
+    public HealthManager healthManager;
     public int damage;
 
     void Start()
     {
         rigidBody = GetComponent<Rigidbody2D>();
         player = GameObject.FindGameObjectWithTag("Player");
-        damageManager = player.GetComponent<DamageManager>();
+        healthManager = player.GetComponent<HealthManager>();
 
         Vector3 direction = player.transform.position - transform.position;
         rigidBody.velocity  = new Vector2(direction.x, direction.y).normalized * force;
@@ -36,7 +36,7 @@ public class EnemyBulletScript : MonoBehaviour
     private void OnTriggerEnter2D(Collider2D collision)
     {
         if (collision.gameObject.CompareTag("Player")) {
-            damageManager.TakeDamage(damage);
+            healthManager.TakeDamage(damage);
             Destroy(gameObject); 
         }
     }

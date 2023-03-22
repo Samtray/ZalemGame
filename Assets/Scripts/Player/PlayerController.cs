@@ -12,7 +12,7 @@ public class PlayerController : MonoBehaviour
     public float friccionSuelo;
 
     private Rigidbody2D rigidPlayer;
-    private Animator animator;
+    public Animator animator;
     private float horizontalInput;
     public static bool miraDerecha = false;
     public GameObject attackPoint;
