@@ -197,17 +197,21 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 2143601842}
     m_Modifications:
+    - target: {fileID: 380846158, guid: 08b0a988efc7377408aaf62874b41ad3, type: 3}
+      propertyPath: healthManager
+      value: 
+      objectReference: {fileID: 810206486}
     - target: {fileID: 1973896708498334337, guid: 08b0a988efc7377408aaf62874b41ad3, type: 3}
       propertyPath: m_RootOrder
       value: 6
       objectReference: {fileID: 0}
     - target: {fileID: 1973896708498334337, guid: 08b0a988efc7377408aaf62874b41ad3, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 50
+      value: -8.25
       objectReference: {fileID: 0}
     - target: {fileID: 1973896708498334337, guid: 08b0a988efc7377408aaf62874b41ad3, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -10.59
+      value: -10.54
       objectReference: {fileID: 0}
     - target: {fileID: 1973896708498334337, guid: 08b0a988efc7377408aaf62874b41ad3, type: 3}
       propertyPath: m_LocalPosition.z
@@ -245,14 +249,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: DiablitoExplosivo
       objectReference: {fileID: 0}
-    - target: {fileID: 8287284094252738832, guid: 08b0a988efc7377408aaf62874b41ad3, type: 3}
-      propertyPath: damageManager
-      value: 
-      objectReference: {fileID: 810206486}
-    - target: {fileID: 8287284094252738832, guid: 08b0a988efc7377408aaf62874b41ad3, type: 3}
-      propertyPath: healthManager
-      value: 
-      objectReference: {fileID: 810206486}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 08b0a988efc7377408aaf62874b41ad3, type: 3}
 --- !u!4 &86400018 stripped
@@ -1018,11 +1014,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8109983103663903693, guid: 395d438a460ce144db1bea1c2fc8d7c6, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 77.75
+      value: 77.85
       objectReference: {fileID: 0}
     - target: {fileID: 8109983103663903693, guid: 395d438a460ce144db1bea1c2fc8d7c6, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -10.45
+      value: -9.6
       objectReference: {fileID: 0}
     - target: {fileID: 8109983103663903693, guid: 395d438a460ce144db1bea1c2fc8d7c6, type: 3}
       propertyPath: m_LocalPosition.z
@@ -2152,11 +2148,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8109983103663903693, guid: 395d438a460ce144db1bea1c2fc8d7c6, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 71.36
+      value: 70.77
       objectReference: {fileID: 0}
     - target: {fileID: 8109983103663903693, guid: 395d438a460ce144db1bea1c2fc8d7c6, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -10.49
+      value: -9.56
       objectReference: {fileID: 0}
     - target: {fileID: 8109983103663903693, guid: 395d438a460ce144db1bea1c2fc8d7c6, type: 3}
       propertyPath: m_LocalPosition.z
@@ -2194,10 +2190,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: DiablitoMetralleta
       objectReference: {fileID: 0}
-    - target: {fileID: 8109983104044426363, guid: 395d438a460ce144db1bea1c2fc8d7c6, type: 3}
-      propertyPath: damageManager
-      value: 
-      objectReference: {fileID: 810206486}
     - target: {fileID: 8109983104044426363, guid: 395d438a460ce144db1bea1c2fc8d7c6, type: 3}
       propertyPath: healthManager
       value: 

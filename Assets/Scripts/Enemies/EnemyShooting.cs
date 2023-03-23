@@ -33,6 +33,7 @@ public class EnemyShooting : MonoBehaviour
     }
 
     void Shoot() {
-        Instantiate(bullet, bulletPosition.position, Quaternion.identity);
+        var bulletInstance = Instantiate(bullet, bulletPosition.position, Quaternion.identity);
+        bulletInstance.tag = "Bullet";
     }
 }

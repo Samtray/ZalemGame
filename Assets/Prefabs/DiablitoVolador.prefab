@@ -169,6 +169,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   moveSpeed: 3
+  colliderEnemy: {fileID: 0}
 --- !u!1 &7342893880786824968
 GameObject:
   m_ObjectHideFlags: 0

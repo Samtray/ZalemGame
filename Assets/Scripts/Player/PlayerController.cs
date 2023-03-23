@@ -88,7 +88,12 @@ public class PlayerController : MonoBehaviour
         foreach (Collider2D enemyGameEnemy in enemy)
         {
             Debug.Log("Enemy Hit");
-            enemyGameEnemy.GetComponent<EnemyDeath>().death = true;
+            try { enemyGameEnemy.GetComponent<EnemyDeath>().death = true; }
+            catch{ Debug.Log("Explosion Type"); }
+
+            try { enemyGameEnemy.GetComponent<EnemyDeathExplosion>().death = true; }
+            catch { Debug.Log("Regular Type"); }
+            
         }
     }
 

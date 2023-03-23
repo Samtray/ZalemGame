@@ -5,22 +5,26 @@ using UnityEngine;
 public class FollowPlayerAndExplode : MonoBehaviour
 {
     public float speed;
+    public bool isExploding = false;
     public float stoppingDistance;
 
     private Transform target;
     private Animator animator;
     private Rigidbody2D rigidEnemy;
+    private Collider2D colliderEnemy;
     private SpriteRenderer spriteRenderer;
     public HealthManager healthManager;
     public float reachDistance;
     public int damage;
     private bool canMove = true;
+    private bool dead = false;
 
     void Start()
     {
         target = GameObject.FindGameObjectWithTag("Player").GetComponent<Transform>();
         animator = GetComponent<Animator>();
         rigidEnemy = GetComponent<Rigidbody2D>();
+        colliderEnemy = GetComponent<Collider2D>();
     }
 
     public void Awake()
@@ -32,7 +36,7 @@ public class FollowPlayerAndExplode : MonoBehaviour
     {
         Vector3 escalaGiro = transform.localScale;
 
-        if (target.transform.position.x < transform.position.x)
+        if (IsFacingRight())
         {
             escalaGiro.x = 1;
         }
@@ -47,10 +51,15 @@ public class FollowPlayerAndExplode : MonoBehaviour
         int followLimit = 8;
         float distanceBetweenPlayerAndEnemy = Vector2.Distance(transform.position, target.transform.position);
 
-        if (distanceBetweenPlayerAndEnemy < followLimit) {
+        if (distanceBetweenPlayerAndEnemy < followLimit && !dead) {
             CalculateDistance(targetPosition);
         }
 
+    }
+
+    public bool IsFacingRight()
+    { 
+        return target.transform.position.x < transform.position.x;
     }
 
     public void CalculateDistance(Vector2 targetPosition) {
@@ -67,6 +76,7 @@ public class FollowPlayerAndExplode : MonoBehaviour
         }
         else
         {
+            isExploding = true;
             stoppingDistance = stopMovementValue;
             animator.SetBool("Explosion", true);
             StartCoroutine(SetAnimation());
@@ -116,5 +126,17 @@ public class FollowPlayerAndExplode : MonoBehaviour
     private void OnTriggerExit2D(Collider2D collision)
     {
         canMove = true;
+    }
+
+    public void DisableMovement()
+    {
+        dead = true;
+        rigidEnemy.velocity = new Vector2(0f, 0f);
+        colliderEnemy.enabled = false;
+    }
+
+    public void DestroyEnemy()
+    {
+        Destroy(gameObject);
     }
 }

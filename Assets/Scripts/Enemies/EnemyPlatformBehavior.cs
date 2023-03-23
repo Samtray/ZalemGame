@@ -6,7 +6,8 @@ public class EnemyPlatformBehavior : MonoBehaviour
 {
     [SerializeField] float moveSpeed = 1f;
     Rigidbody2D rigidEnemy;
-    BoxCollider2D colliderEnemy;
+    public BoxCollider2D colliderEnemy;
+    private bool dead = false;
     // Start is called before the first frame update
     void Start()
     {
@@ -17,17 +18,20 @@ public class EnemyPlatformBehavior : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (IsFacingRight())
-        {
-            //Move right
-            rigidEnemy.velocity = new Vector2(moveSpeed, 0f);
-        }
-        else {
-            rigidEnemy.velocity = new Vector2(-moveSpeed, 0f);
+        if (!dead) {
+            if (IsFacingRight())
+            {
+                //Move right
+                rigidEnemy.velocity = new Vector2(moveSpeed, 0f);
+            }
+            else
+            {
+                rigidEnemy.velocity = new Vector2(-moveSpeed, 0f);
+            }
         }
     }
 
-    private bool IsFacingRight() {
+    public bool IsFacingRight() {
         return transform.localScale.x > Mathf.Epsilon;
     }
 
@@ -40,5 +44,16 @@ public class EnemyPlatformBehavior : MonoBehaviour
         transform.localScale = new Vector2(
             -(Mathf.Sign(rigidEnemy.velocity.x)), 
             transform.localScale.y);
+    }
+
+    public void DisableMovement() {
+        dead = true;
+        rigidEnemy.velocity = new Vector2(0f, 0f);
+        colliderEnemy.enabled = false;
+    }
+
+    public void DestroyEnemy()
+    {
+        Destroy(gameObject);
     }
 }
