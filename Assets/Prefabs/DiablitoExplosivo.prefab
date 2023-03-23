@@ -15,7 +15,7 @@ GameObject:
   - component: {fileID: 380846155}
   - component: {fileID: 380846154}
   - component: {fileID: 380846158}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: DiablitoExplosivo
   m_TagString: Demonio
   m_Icon: {fileID: 0}
