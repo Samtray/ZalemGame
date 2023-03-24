@@ -207,11 +207,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1973896708498334337, guid: 08b0a988efc7377408aaf62874b41ad3, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -8.25
+      value: 50.35
       objectReference: {fileID: 0}
     - target: {fileID: 1973896708498334337, guid: 08b0a988efc7377408aaf62874b41ad3, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -10.54
+      value: -10.55
       objectReference: {fileID: 0}
     - target: {fileID: 1973896708498334337, guid: 08b0a988efc7377408aaf62874b41ad3, type: 3}
       propertyPath: m_LocalPosition.z
@@ -6706,6 +6706,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 2143601842}
     m_Modifications:
+    - target: {fileID: 380846158, guid: 08b0a988efc7377408aaf62874b41ad3, type: 3}
+      propertyPath: healthManager
+      value: 
+      objectReference: {fileID: 810206486}
     - target: {fileID: 1973896708498334337, guid: 08b0a988efc7377408aaf62874b41ad3, type: 3}
       propertyPath: m_RootOrder
       value: 9
@@ -6856,6 +6860,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 2143601842}
     m_Modifications:
+    - target: {fileID: 380846158, guid: 08b0a988efc7377408aaf62874b41ad3, type: 3}
+      propertyPath: healthManager
+      value: 
+      objectReference: {fileID: 810206486}
     - target: {fileID: 1843483888106802894, guid: 08b0a988efc7377408aaf62874b41ad3, type: 3}
       propertyPath: damageManager
       value: 
@@ -6914,7 +6922,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3412401259711542912, guid: 08b0a988efc7377408aaf62874b41ad3, type: 3}
       propertyPath: m_Layer
-      value: 0
+      value: 6
       objectReference: {fileID: 0}
     - target: {fileID: 8287284094252738832, guid: 08b0a988efc7377408aaf62874b41ad3, type: 3}
       propertyPath: damageManager
@@ -7338,6 +7346,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 2143601842}
     m_Modifications:
+    - target: {fileID: 380846158, guid: 08b0a988efc7377408aaf62874b41ad3, type: 3}
+      propertyPath: healthManager
+      value: 
+      objectReference: {fileID: 810206486}
     - target: {fileID: 1843483888106802894, guid: 08b0a988efc7377408aaf62874b41ad3, type: 3}
       propertyPath: damageManager
       value: 
@@ -7396,7 +7408,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3412401259711542912, guid: 08b0a988efc7377408aaf62874b41ad3, type: 3}
       propertyPath: m_Layer
-      value: 0
+      value: 6
       objectReference: {fileID: 0}
     - target: {fileID: 8287284094252738832, guid: 08b0a988efc7377408aaf62874b41ad3, type: 3}
       propertyPath: damageManager
