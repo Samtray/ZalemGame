@@ -40,12 +40,13 @@ public class PlayerController : MonoBehaviour
         animator.SetBool("TocarSuelo", terrenoCheck);
         animator.SetBool("TocarPlataforma",  platformCheck);
 
-
+        // Jump
         if (Input.GetButtonDown("Jump") && (terrenoCheck || platformCheck)) {
             jump();
         }
 
-        if (Input.GetKeyDown(KeyCode.X))
+        // Land Attack
+        if (Input.GetKeyDown(KeyCode.X) && (terrenoCheck || platformCheck))
         {
             animator.SetBool("Ataque", true);
         }
