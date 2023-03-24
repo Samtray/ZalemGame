@@ -20,14 +20,7 @@ public class EnemyDeathExplosion : MonoBehaviour
         if (death && !explosionMovement.isExploding)
         {
             hitbox.enabled = false;
-            if (explosionMovement.IsFacingRight())
-            {
-                animator.SetBool("isDeadRight", true);
-            }
-            else
-            {
-                animator.SetBool("isDeadLeft", true);
-            }
+            animator.SetBool("isDead", true);
         }
     }
 }
