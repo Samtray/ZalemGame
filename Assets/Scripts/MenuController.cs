@@ -17,11 +17,6 @@ public class MenuController : MonoBehaviour
     [SerializeField] SpriteRenderer opciones;
     [SerializeField] SpriteRenderer salir;
 
-    [Header("Elementos de Opciones")]
-    [SerializeField] SpriteRenderer musica;
-    [SerializeField] SpriteRenderer sonido;
-    [SerializeField] SpriteRenderer volver;
-
     [Header("Sprites de Menu")]
     [SerializeField] Sprite comenzar_off;
     [SerializeField] Sprite comenzar_on;
@@ -30,26 +25,15 @@ public class MenuController : MonoBehaviour
     [SerializeField] Sprite salir_off;
     [SerializeField] Sprite salir_on;
 
-    [Header("Sprites de opciones")]
-    [SerializeField] Sprite musica_off;
-    [SerializeField] Sprite musica_on;
-    [SerializeField] Sprite sonido_off;
-    [SerializeField] Sprite sonido_on;
-    [SerializeField] Sprite volver_off;
-    [SerializeField] Sprite volver_on;
-    [SerializeField] Sprite vol_off;
-    [SerializeField] Sprite vol_on;
-    [SerializeField] SpriteRenderer[] musica_spr;
-    [SerializeField] SpriteRenderer[] sonido_spr;
-
-
     [Header("Sonido")]
     [SerializeField] AudioSource musicaMenu;
+
     [SerializeField] AudioSource sonido_opcion;
     [SerializeField] AudioSource sonido_seleccion;
 
     int pantalla;
     int opcionMenu, opcionMenuAnterior;
+    int opcionOpciones, opcionOpcionAnterior;
     bool submitPulsado;
     float vertical, horizontal;
     float tiempoVertical, tiempoHorizontal;
@@ -59,7 +43,9 @@ public class MenuController : MonoBehaviour
         pantalla = 0;
         tiempoVertical = tiempoHorizontal = 0;
         opcionMenu = opcionMenuAnterior = 1;
+        opcionOpciones = opcionOpcionAnterior = 1;
     }
+
 
     void Update()
     {
@@ -69,6 +55,7 @@ public class MenuController : MonoBehaviour
         if (Input.GetButtonUp("Submit")) submitPulsado = false;
         if (vertical == 0) tiempoVertical = 0;
         if (pantalla == 0) MenuPrincipal();
+        if (pantalla == 1) MenuOpciones();
     }
 
     void MenuPrincipal()
@@ -88,12 +75,37 @@ public class MenuController : MonoBehaviour
         if (Input.GetButtonDown("Submit") && !submitPulsado)
         {
             if (opcionMenu == 1) SceneManager.LoadScene("PrimerNivel");
+            if (opcionMenu == 2) CargaPantallaOpciones();
             if (opcionMenu == 3) Application.Quit();
         }
     }
-  
 
-    void SeleccionaMenu(int opcion) {
+    void MenuOpciones()
+    {
+        if (Input.GetButtonDown("Submit") && !submitPulsado) CargaPantallaMenu();
+    }
+
+    void CargaPantallaMenu()
+    {
+        submitPulsado = true;
+        pantalla = 0;
+        pantallaOpciones.SetActive(false);
+        pantallaMenu.SetActive(true);
+    }
+
+    void CargaPantallaOpciones()
+    {
+        submitPulsado = true;
+        pantallaMenu.SetActive(false);
+        pantalla = 1;
+        opcionOpciones = opcionOpciones = 1;
+        pantallaOpciones.SetActive(true);
+        pantallaMenu.SetActive(false);
+    }
+
+    void SeleccionaMenu(int opcion)
+    {
+        //sonido_opcion.Play();
         opcionMenu = opcion;
         if (opcion == 1) comenzar.sprite = comenzar_on;
         if (opcion == 2) opciones.sprite = opciones_on;
@@ -103,5 +115,4 @@ public class MenuController : MonoBehaviour
         if (opcionMenuAnterior == 3) salir.sprite = salir_off;
         opcionMenuAnterior = opcion;
     }
-
 }
