@@ -8,6 +8,8 @@ TagManager:
   - Demonio
   - Platform
   - Bullet
+  - knife_icon
+  - skull_icon
   layers:
   - Default
   - TransparentFX
