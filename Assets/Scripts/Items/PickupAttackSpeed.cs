@@ -7,6 +7,9 @@ public class PickupAttackSpeed : MonoBehaviour
     public GameObject player;
     public int durationSeconds;
     public float modifiedSpeed;
+
+    public delegate void onPickUpAttackSpeed(string pickUpType, bool isActive); 
+    public static onPickUpAttackSpeed onPickUpDelegate;
     private void OnTriggerEnter2D(Collider2D collision)
     {
         CheckSpeedCollision(collision);
@@ -29,9 +32,11 @@ public class PickupAttackSpeed : MonoBehaviour
     {
         var playerAnimator = player.GetComponent<PlayerController>().animator;
 
+        onPickUpDelegate.Invoke("Attack_speed", true);
         playerAnimator.SetFloat("VelocidadDeAtaque", modifiedSpeed);
         yield return new WaitForSeconds(duration);
         playerAnimator.SetFloat("VelocidadDeAtaque", 1);
+        onPickUpDelegate.Invoke("Attack_speed", false);
 
         Destroy(gameObject);
     }
