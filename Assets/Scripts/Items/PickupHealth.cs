@@ -18,7 +18,6 @@ public class PickupHealth : MonoBehaviour
         if (collision.gameObject.CompareTag("Player"))
         {
             GainHealth(healthAmount);
-            HealthManager.collision2DPosition = transform.position;
         }
     }
 
