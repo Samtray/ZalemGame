@@ -8,7 +8,7 @@ public class PickupRange : MonoBehaviour
     public int durationSeconds;
     public int modifiedRange;
 
-      public delegate void onPickUpRange(string pickUpType, bool isActive); 
+      public delegate void onPickUpRange(string pickUpType, bool isActive, bool isEnding); 
     public static onPickUpRange onPickUpDelegate;
     private void OnTriggerEnter2D(Collider2D collision)
     {
@@ -30,11 +30,15 @@ public class PickupRange : MonoBehaviour
 
     public IEnumerator ToggleRangeDistance(int duration)
     {
-        onPickUpDelegate.Invoke("Range", true);
+        onPickUpDelegate.Invoke("Range", true, false);
         player.GetComponent<PlayerController>().radius = modifiedRange;
+
         yield return new WaitForSeconds(duration);
+        onPickUpDelegate.Invoke("Range", true, true);
+
+        yield return new WaitForSeconds(10);
         player.GetComponent<PlayerController>().radius = 1;
         Destroy(gameObject);
-        onPickUpDelegate.Invoke("Range", false);
+        onPickUpDelegate.Invoke("Range", false, false);
     }
 }

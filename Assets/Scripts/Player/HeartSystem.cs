@@ -15,7 +15,14 @@ public class HeartSystem : Observer
     [SerializeField]
     private GameObject skull_icon; 
     [SerializeField]
-    private GameObject knife_icon; 
+    private GameObject knife_icon;
+
+    private SpriteRenderer knifeColor;
+    private Color baseKnifeColor;
+    private SpriteRenderer skullColor;
+    private Color baseSkullColor;
+    private bool knifePowerupEnding;
+    private bool skullPowerupEnding;
 
     public void Start()
     {
@@ -25,6 +32,12 @@ public class HeartSystem : Observer
         PickupRange.onPickUpDelegate = toggleActivePowerUpIcon;
         HealthManager.onHealthUpdate += InstantiateHearts;
         InstantiateHearts();
+
+        knifeColor = knife_icon.GetComponent<SpriteRenderer>();
+        baseKnifeColor = knifeColor.color;
+
+        skullColor = skull_icon.GetComponent<SpriteRenderer>();
+        baseSkullColor = skullColor.color;
     }
 
     private void InstantiateHearts() {
@@ -54,17 +67,53 @@ public class HeartSystem : Observer
         }
     }
 
+    private void Update()
+    {
+        if (knifePowerupEnding)
+        {
+            knifeColor.material.color = Color.Lerp(Color.clear, baseKnifeColor, Mathf.PingPong(Time.time * 15, 1));
+        }
+        else
+        {
+            knifeColor.material.color = baseKnifeColor;
+        }
+
+        if (skullPowerupEnding)
+        {
+            skullColor.material.color = Color.Lerp(Color.clear, Color.red, Mathf.PingPong(Time.time * 15, 1));
+        }
+        else {
+            skullColor.material.color = baseSkullColor;
+        }
+    }
+
     public override void update(int payload) {
         Debug.Log("Took " + payload + " damage");
     }
 
-    public void toggleActivePowerUpIcon(string powerUpType, bool isActive){
+    public void toggleActivePowerUpIcon(string powerUpType, bool isActive, bool isEnding){
         if(powerUpType == "Attack_speed"){
-            knife_icon.SetActive(isActive);
+            if (isEnding)
+            {
+                knifePowerupEnding = true;
+            }
+            else
+            {
+                knifePowerupEnding = false;
+                knife_icon.SetActive(isActive);
+            }
         }
 
         else if(powerUpType == "Range"){
-            skull_icon.SetActive(isActive);
+            if (isEnding)
+            {
+                skullPowerupEnding = true;
+            }
+            else 
+            {
+                skullPowerupEnding = false;
+                skull_icon.SetActive(isActive);
+            }
         }
     }
 
