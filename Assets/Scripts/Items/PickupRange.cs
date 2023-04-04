@@ -30,13 +30,16 @@ public class PickupRange : MonoBehaviour
 
     public IEnumerator ToggleRangeDistance(int duration)
     {
+        int animation = 1;
+        duration -= animation;
+
         onPickUpDelegate.Invoke("Range", true, false);
         player.GetComponent<PlayerController>().radius = modifiedRange;
 
         yield return new WaitForSeconds(duration);
         onPickUpDelegate.Invoke("Range", true, true);
 
-        yield return new WaitForSeconds(10);
+        yield return new WaitForSeconds(animation);
         player.GetComponent<PlayerController>().radius = 1;
         Destroy(gameObject);
         onPickUpDelegate.Invoke("Range", false, false);

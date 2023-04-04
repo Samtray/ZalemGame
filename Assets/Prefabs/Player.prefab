@@ -220,6 +220,7 @@ MonoBehaviour:
   fuerzaSalto: 15
   terrenoCheck: 0
   friccionSuelo: 0.85
+  animator: {fileID: 0}
   attackPoint: {fileID: 1490061849}
   radius: 1
   enemies:

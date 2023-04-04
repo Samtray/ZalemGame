@@ -49,10 +49,10 @@ public class HealthManager : Subject
 
         if (invincible)
         {
-            spriteComponent.color = Color.Lerp(Color.clear, baseColor, Mathf.PingPong(Time.time * speed, 1));
+            spriteComponent.material.color = Color.Lerp(Color.clear, baseColor, Mathf.PingPong(Time.time * speed, 1));
         }
         else {
-            spriteComponent.color = baseColor;
+            spriteComponent.material.color = baseColor;
         }
 
     }

@@ -30,6 +30,9 @@ public class PickupAttackSpeed : MonoBehaviour
 
     public IEnumerator ToggleAttackSpeed(int duration)
     {
+        int animation = 1;
+        duration -= animation;
+
         var playerAnimator = player.GetComponent<PlayerController>().animator;
 
         onPickUpDelegate.Invoke("Attack_speed", true, false);
@@ -38,7 +41,7 @@ public class PickupAttackSpeed : MonoBehaviour
         yield return new WaitForSeconds(duration);
         onPickUpDelegate.Invoke("Attack_speed", true, true);
 
-        yield return new WaitForSeconds(1);
+        yield return new WaitForSeconds(animation);
         playerAnimator.SetFloat("VelocidadDeAtaque", 1);
         onPickUpDelegate.Invoke("Attack_speed", false, false);
 

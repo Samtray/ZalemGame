@@ -80,7 +80,7 @@ public class HeartSystem : Observer
 
         if (skullPowerupEnding)
         {
-            skullColor.material.color = Color.Lerp(Color.clear, Color.red, Mathf.PingPong(Time.time * 15, 1));
+            skullColor.material.color = Color.Lerp(Color.clear, baseSkullColor, Mathf.PingPong(Time.time * 15, 1));
         }
         else {
             skullColor.material.color = baseSkullColor;

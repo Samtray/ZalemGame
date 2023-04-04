@@ -14,7 +14,7 @@ public class Reintentar : MonoBehaviour
     [SerializeField] Sprite reintentar_on;
     [SerializeField] Sprite salir_off;
     [SerializeField] Sprite salir_on;
-    private bool selection = false;
+    private bool selection = true;
 
     void Update()
     {
