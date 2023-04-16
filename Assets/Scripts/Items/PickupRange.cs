@@ -7,26 +7,22 @@ public class PickupRange : MonoBehaviour
     public GameObject player;
     public int durationSeconds;
     public int modifiedRange;
+    public AudioSource pickupSound;
 
-      public delegate void onPickUpRange(string pickUpType, bool isActive, bool isEnding); 
+    public delegate void onPickUpRange(string pickUpType, bool isActive, bool isEnding); 
     public static onPickUpRange onPickUpDelegate;
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        CheckRangeCollision(collision);
-        SpriteRenderer sprite = GetComponent<SpriteRenderer>();
-        Collider2D collider = GetComponent<Collider2D>();
-        sprite.enabled = false;
-        collider.enabled = false;
-    }
-
-    private void CheckRangeCollision(Collider2D collision)
-    {
-        if (collision.gameObject.CompareTag("Player"))
-        {
-            StartCoroutine(ToggleRangeDistance(durationSeconds));
+        if (collision.gameObject.CompareTag("Player")) {
+           StartCoroutine(ToggleRangeDistance(durationSeconds));
+           pickupSound.Play();
+           SpriteRenderer sprite = GetComponent<SpriteRenderer>();
+           Collider2D collider = GetComponent<Collider2D>();
+           sprite.enabled = false;
+           collider.enabled = false;
         }
+            
     }
-
 
     public IEnumerator ToggleRangeDistance(int duration)
     {

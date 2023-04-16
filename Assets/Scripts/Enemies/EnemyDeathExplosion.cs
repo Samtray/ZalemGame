@@ -5,8 +5,9 @@ using UnityEngine;
 public class EnemyDeathExplosion : MonoBehaviour
 {
     public bool death = false;
+    public AudioSource deathSound;
     private Animator animator;
-    private FollowPlayerAndExplode explosionMovement;
+    public FollowPlayerAndExplode explosionMovement;
     private Collider2D hitbox;
 
     private void Start()

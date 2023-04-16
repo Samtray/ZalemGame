@@ -18,6 +18,8 @@ public class PlayerController : MonoBehaviour
     public GameObject attackPoint;
     public float radius;
     public LayerMask enemies;
+    public AudioSource attackSound;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -89,13 +91,30 @@ public class PlayerController : MonoBehaviour
         foreach (Collider2D enemyGameEnemy in enemy)
         {
             Debug.Log("Enemy Hit");
-            try { enemyGameEnemy.GetComponent<EnemyDeath>().death = true; }
+            try {
+                var enemyAttacked = enemyGameEnemy.GetComponent<EnemyDeath>();
+                enemyAttacked.death = true;
+                enemyAttacked.deathSound.Play();
+
+            }
             catch{ Debug.Log("Explosion Type"); }
 
-            try { enemyGameEnemy.GetComponent<EnemyDeathExplosion>().death = true; }
+            try
+            {
+                var enemyAttacked = enemyGameEnemy.GetComponent<EnemyDeathExplosion>();
+                if (!enemyAttacked.explosionMovement.isExploding) { 
+                    enemyAttacked.death = true;
+                    enemyAttacked.deathSound.Play();
+                }
+            }
             catch { Debug.Log("Regular Type"); }
             
         }
+    }
+
+    public void AttackSound()
+    {
+        attackSound.Play();
     }
 
     private void OnDrawGizmos()

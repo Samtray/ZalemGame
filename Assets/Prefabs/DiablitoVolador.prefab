@@ -16,7 +16,7 @@ GameObject:
   - component: {fileID: 7342893881208573254}
   m_Layer: 0
   m_Name: DiablitoVolador
-  m_TagString: Untagged
+  m_TagString: Demonio
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -257,3 +257,4 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   death: 0
+  deathSound: {fileID: 0}

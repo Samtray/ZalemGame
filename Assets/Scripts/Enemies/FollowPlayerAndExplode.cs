@@ -18,6 +18,8 @@ public class FollowPlayerAndExplode : MonoBehaviour
     public int damage;
     private bool canMove = true;
     private bool dead = false;
+    public AudioSource fuseSound;
+    public AudioSource explosionSound;
 
     void Start()
     {
@@ -77,6 +79,7 @@ public class FollowPlayerAndExplode : MonoBehaviour
         else
         {
             isExploding = true;
+            fuseSound.Play();
             stoppingDistance = stopMovementValue;
             animator.SetBool("Explosion", true);
             StartCoroutine(SetAnimation());
@@ -88,12 +91,14 @@ public class FollowPlayerAndExplode : MonoBehaviour
     public IEnumerator ExplodeEnemy() {
         var animationTime = 1;
         yield return new WaitForSeconds(animationTime);
+        explosionSound.Play();
         DestroyGameObject();
     }
 
     public IEnumerator SetAnimation() {
         var explosionWindow = 0.75f;
         yield return new WaitForSeconds(explosionWindow);
+        fuseSound.Stop();
         CheckForDamage();
     }
 
@@ -133,10 +138,5 @@ public class FollowPlayerAndExplode : MonoBehaviour
         dead = true;
         rigidEnemy.velocity = new Vector2(0f, 0f);
         colliderEnemy.enabled = false;
-    }
-
-    public void DestroyEnemy()
-    {
-        Destroy(gameObject);
     }
 }

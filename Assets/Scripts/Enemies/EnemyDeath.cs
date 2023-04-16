@@ -5,6 +5,7 @@ using UnityEngine;
 public class EnemyDeath : MonoBehaviour
 {
     public bool death = false;
+    public AudioSource deathSound;
     private Animator parentAnimator;
     private EnemyPlatformBehavior parentMovement;
     private Collider2D hitbox;

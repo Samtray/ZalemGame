@@ -23,6 +23,7 @@ public class HealthManager : Subject
     private bool exploded;
     private bool explosionDirection;
     public float disabledSeconds;
+    public AudioSource damageSound;
 
     //[SerializeField]
     //private HeartSystem healthUIObserver;
@@ -75,6 +76,7 @@ public class HealthManager : Subject
     public void TakeDamageByExplosion(int damage, bool direction) {
         if (!invincible)
         {
+            damageSound.Play();
             explosionDirection = direction;
             health -= damage;
             StartCoroutine(SetInvincibilityFrames(invincibilityDuration));
@@ -92,6 +94,7 @@ public class HealthManager : Subject
     public void TakeDamage(int damage){
         
         if (!invincible){
+            damageSound.Play();
             victimRigidbody.velocity = new Vector2(0, 0);
             health -= damage;
             StartCoroutine(SetInvincibilityFrames(invincibilityDuration));
