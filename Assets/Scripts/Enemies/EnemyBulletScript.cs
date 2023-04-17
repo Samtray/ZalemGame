@@ -36,7 +36,13 @@ public class EnemyBulletScript : MonoBehaviour
     private void OnTriggerEnter2D(Collider2D collision)
     {
         if (collision.gameObject.CompareTag("Player")) {
-            healthManager.TakeDamage(damage);
+            if (player.transform.position.x < transform.position.x){
+                healthManager.TakeDamageByExplosion(damage, true);
+            }
+            else{
+                healthManager.TakeDamageByExplosion(damage, false);
+            }
+            //healthManager.TakeDamage(damage);
             Destroy(gameObject); 
         }
     }

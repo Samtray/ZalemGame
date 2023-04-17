@@ -20,6 +20,7 @@ public class FollowPlayerAndExplode : MonoBehaviour
     private bool dead = false;
     public AudioSource fuseSound;
     public AudioSource explosionSound;
+    public bool runOnce = false;
 
     void Start()
     {
@@ -67,7 +68,6 @@ public class FollowPlayerAndExplode : MonoBehaviour
     public void CalculateDistance(Vector2 targetPosition) {
         var stopMovementValue = 999f;
 
-
         if ((Vector2.Distance(transform.position, target.position) > stoppingDistance) && canMove)
         {
             transform.position = Vector2.MoveTowards(
@@ -76,29 +76,29 @@ public class FollowPlayerAndExplode : MonoBehaviour
                 speed * Time.deltaTime
             );
         }
-        else
+        else if(!runOnce)
         {
             isExploding = true;
-            fuseSound.Play();
             stoppingDistance = stopMovementValue;
             animator.SetBool("Explosion", true);
             StartCoroutine(SetAnimation());
             StartCoroutine(ExplodeEnemy());
-
         }
     }
 
     public IEnumerator ExplodeEnemy() {
+        runOnce = true;
         var animationTime = 1;
         yield return new WaitForSeconds(animationTime);
-        explosionSound.Play();
         DestroyGameObject();
     }
 
     public IEnumerator SetAnimation() {
         var explosionWindow = 0.75f;
+        fuseSound.Play();
         yield return new WaitForSeconds(explosionWindow);
         fuseSound.Stop();
+        explosionSound.Play();
         CheckForDamage();
     }
 

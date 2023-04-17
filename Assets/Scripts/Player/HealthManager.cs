@@ -8,7 +8,8 @@ public class HealthManager : Subject
     public int health;
     private int initialHealth; 
     private Rigidbody2D victimRigidbody;
-    public Vector2 damageTakenForce;
+    //public Vector2 damageTakenForce;
+    //public Vector2 explosionTakenForce;
     public float invincibilityDuration;
     private bool invincible; 
     private SpriteRenderer spriteComponent;
@@ -60,16 +61,22 @@ public class HealthManager : Subject
 
     private void FixedUpdate() {
 
-        if (damaged){
-            victimRigidbody.AddForce(damageTakenForce * ((transform.position.x - collision2DPosition.x < 0)? -1 : 1) , ForceMode2D.Impulse);
-        }
-
-        if (exploded && explosionDirection)
+        if (damaged)
         {
-            victimRigidbody.AddForce(damageTakenForce * -1, ForceMode2D.Impulse);
+            if (transform.position.x - collision2DPosition.x < 0){
+                victimRigidbody.AddForce(new Vector2(-50, 100));
+            }
+            else{
+                victimRigidbody.AddForce(new Vector2(50, 100));
+            }
         }
-        else if (exploded && !explosionDirection) { 
-            victimRigidbody.AddForce(damageTakenForce * 1, ForceMode2D.Impulse);
+        
+
+        if (exploded && explosionDirection){
+            victimRigidbody.AddForce(new Vector2(-600, 100));
+        }
+        else if (exploded && !explosionDirection) {
+            victimRigidbody.AddForce(new Vector2(600, 100));
         }
     }
 
@@ -100,7 +107,6 @@ public class HealthManager : Subject
             StartCoroutine(SetInvincibilityFrames(invincibilityDuration));
             StartCoroutine(DisablePlayerController(disabledSeconds));
             StartCoroutine(ToggleDamagedEffect(damagedSeconds));
-            //notify(damage);
             onHealthUpdate.Invoke();
         }
     }
@@ -111,7 +117,6 @@ public class HealthManager : Subject
 
     public void ToggleInvincibility(){
         invincible = !invincible;
-        //Debug.Log("setting invincibility to " + invincible.ToString());
     }
 
     public IEnumerator DisablePlayerController(float disabledDuration)

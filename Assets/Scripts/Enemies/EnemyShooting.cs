@@ -10,12 +10,11 @@ public class EnemyShooting : MonoBehaviour
     private float timer;
     private GameObject player;
     public int attackDistance;
-    private Transform target;
-
+    public AudioSource fireballSound; 
     void Start()
     {
         player = GameObject.FindGameObjectWithTag("Player");
-        target = GameObject.FindGameObjectWithTag("Player").GetComponent<Transform>();
+        //target = GameObject.FindGameObjectWithTag("Player").GetComponent<Transform>();
     }
 
     void Update()
@@ -26,7 +25,7 @@ public class EnemyShooting : MonoBehaviour
         
         timer += Time.deltaTime;
 
-        if (timer > 2) {
+        if (timer > 3) {
             timer = 0;
             Shoot();
         }
@@ -35,5 +34,6 @@ public class EnemyShooting : MonoBehaviour
     void Shoot() {
         var bulletInstance = Instantiate(bullet, bulletPosition.position, Quaternion.identity);
         bulletInstance.tag = "Bullet";
+        fireballSound.Play();
     }
 }
