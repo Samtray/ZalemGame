@@ -10,7 +10,7 @@ public class SceneInitializer : MonoBehaviour
 
     void Start()
     {
-        PlayerPrefs.DeleteAll();
+        //PlayerPrefs.DeleteAll();
 
         //Music
         musicaNivel.volume = PlayerPrefs.GetFloat("volumenMusica", 0.5f);

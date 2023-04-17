@@ -24,7 +24,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 8109983103507083134}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0.55, z: 0}
+  m_LocalPosition: {x: 0, y: -0.5, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -218,6 +218,7 @@ MonoBehaviour:
   bullet: {fileID: 1539025816924440797, guid: 9247a9bf30e5d1c41a6343f5ea6fe46c, type: 3}
   bulletPosition: {fileID: 8109983103507083133}
   attackDistance: 6
+  fireballSound: {fileID: 0}
 --- !u!1 &8109983104044426629
 GameObject:
   m_ObjectHideFlags: 0
@@ -305,3 +306,4 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   death: 0
+  deathSound: {fileID: 0}
