@@ -48,7 +48,7 @@ public class PlayerController : MonoBehaviour
         }
 
         // Land Attack
-        if (Input.GetKeyDown(KeyCode.X) && (terrenoCheck || platformCheck))
+        if (Input.GetButtonDown("Fire1") && (terrenoCheck || platformCheck))
         {
             animator.SetBool("Ataque", true);
         }
