@@ -7,6 +7,7 @@ public class GameLoader : MonoBehaviour
 {
     private void OnEnable()
     {
+        PlayerPrefs.SetString("introCutscene", "true");
         SceneManager.LoadScene("PrimerNivel", LoadSceneMode.Single);
     }
 }
