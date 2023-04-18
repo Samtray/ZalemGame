@@ -2,29 +2,23 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class EnemyBulletScript : MonoBehaviour
+public class EnemyBulletScript : Projectile
 {
-    public GameObject player;
-    private Rigidbody2D rigidBody;
     public float force;
     private float bulletTimer;
-    public HealthManager healthManager;
-    public int damage;
 
-    void Start()
+    protected override void Start()
     {
-        rigidBody = GetComponent<Rigidbody2D>();
-        player = GameObject.FindGameObjectWithTag("Player");
-        healthManager = player.GetComponent<HealthManager>();
+        base.Start();
 
         Vector3 direction = player.transform.position - transform.position;
-        rigidBody.velocity  = new Vector2(direction.x, direction.y).normalized * force;
+        projectileRigidBody.velocity  = new Vector2(direction.x, direction.y).normalized * force;
 
         float rotation = Mathf.Atan2(-direction.y, -direction.x) * Mathf.Rad2Deg;
         transform.rotation = Quaternion.Euler(0, 0, rotation + 180);
     }
 
-    void Update()
+    protected override void Update()
     {
         bulletTimer += Time.deltaTime;
 
@@ -33,11 +27,8 @@ public class EnemyBulletScript : MonoBehaviour
         }
     }
 
-    private void OnTriggerEnter2D(Collider2D collision)
+    protected override void OnTriggerEnter2D(Collider2D collision)
     {
-        if (collision.gameObject.CompareTag("Player")) {
-            healthManager.TakeDamageByBullet(damage);
-            Destroy(gameObject); 
-        }
+        base.OnTriggerEnter2D(collision);
     }
 }

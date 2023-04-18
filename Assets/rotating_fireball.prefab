@@ -12,10 +12,10 @@ GameObject:
   - component: {fileID: 1539025816924440795}
   - component: {fileID: 1539025816924440796}
   - component: {fileID: 6495743915212168947}
-  - component: {fileID: 881021611838078659}
   - component: {fileID: 2456907811525963782}
+  - component: {fileID: 6223707220538203228}
   m_Layer: 0
-  m_Name: Fireball
+  m_Name: rotating_fireball
   m_TagString: Bullet
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -76,7 +76,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 5
+  m_SortingOrder: 0
   m_Sprite: {fileID: 21300000, guid: bccc162a6d6eb2f4d9983670f73f3e88, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -129,23 +129,6 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 1
   m_Constraints: 0
---- !u!114 &881021611838078659
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1539025816924440797}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 21e3fcb8d794d694d858b248d47dfe91, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  player: {fileID: 7766692120293775752, guid: 673480886313849488be39229678dd94, type: 3}
-  force: 3
-  healthManager: {fileID: 0}
-  damage: 1
-  force: 3
 --- !u!61 &2456907811525963782
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -159,7 +142,7 @@ BoxCollider2D:
   m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0.06071067, y: -0.033495575}
+  m_Offset: {x: 0.060246587, y: -0.03085801}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
@@ -170,5 +153,18 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 0.73622227, y: 0.43057483}
+  m_Size: {x: 0.7501967, y: 0.4504333}
   m_EdgeRadius: 0
+--- !u!114 &6223707220538203228
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1539025816924440797}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 79ef1e377a9882743b0b2f25aef78fba, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  damage: 1
