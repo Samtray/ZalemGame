@@ -64,8 +64,8 @@ public class MenuController : MonoBehaviour
         {
             if (tiempoVertical == 0 || tiempoVertical > tiempoCambiaOpcion)
             {
-                if (vertical == 1 && opcionMenu > 1) SeleccionaMenu(opcionMenu - 1);
-                if (vertical == -1 && opcionMenu < 3) SeleccionaMenu(opcionMenu + 1);
+                if (vertical >0 && opcionMenu > 1) SeleccionaMenu(opcionMenu - 1);
+                if (vertical <0 && opcionMenu < 3) SeleccionaMenu(opcionMenu + 1);
                 if (tiempoVertical > tiempoCambiaOpcion) tiempoVertical = 0;
             }
 
