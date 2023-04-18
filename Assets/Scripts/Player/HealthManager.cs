@@ -31,7 +31,7 @@ public class HealthManager : Subject
 
     void Start()
     {
-        initialHealth = 3;
+        initialHealth = 5;
         invincible = false;
         health = initialHealth;
         victimRigidbody = gameObject.GetComponent<Rigidbody2D>();
@@ -88,6 +88,17 @@ public class HealthManager : Subject
             health -= damage;
             StartCoroutine(SetInvincibilityFrames(invincibilityDuration));
             StartCoroutine(ToggleDamagedEffectExplosion(damagedSeconds));
+            onHealthUpdate.Invoke();
+        }
+    }
+
+    public void TakeDamageByBullet(int damage)
+    {
+        if (!invincible)
+        {
+            damageSound.Play();
+            health -= damage;
+            StartCoroutine(SetInvincibilityFrames(invincibilityDuration));
             onHealthUpdate.Invoke();
         }
     }
