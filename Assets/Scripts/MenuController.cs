@@ -74,7 +74,17 @@ public class MenuController : MonoBehaviour
 
         if (Input.GetButtonDown("Submit") && !submitPulsado)
         {
-            if (opcionMenu == 1) SceneManager.LoadScene("PrimerNivel");
+            if (opcionMenu == 1)
+            {
+                if (PlayerPrefs.GetString("introCutscene", "false") == "false")
+                {
+                    SceneManager.LoadScene("Cutscene", LoadSceneMode.Single);
+                }
+                else
+                {
+                    SceneManager.LoadScene("PrimerNivel", LoadSceneMode.Single);
+                }
+            }
             if (opcionMenu == 2) CargaPantallaOpciones();
             if (opcionMenu == 3) Application.Quit();
         }
