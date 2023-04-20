@@ -27,7 +27,7 @@ public class Stage1: Stage{
     public override void enter(Boss boss)
     {
         Debug.Log("Stage 1");
-        boss.bossSpriteRenderer.color = Color.red;
+        //boss.bossSpriteRenderer.color = Color.red;
         base.enter(boss);
         // Load new set of attacks to perform
         boss.attacks.Add(new Attack1());  
@@ -53,7 +53,6 @@ public class Stage2: Stage{
     {
         Debug.Log("Stage 2");
         boss.EnemyDelayBetweenAttacks *= 0.75f;
-        base.enter(boss);
     }
     public override void next(Boss boss){
         exit();

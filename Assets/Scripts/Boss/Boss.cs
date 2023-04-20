@@ -19,6 +19,10 @@ public class Boss : MonoBehaviour
     public List<GameObject> teleportLocations;
     public GameObject flyingBulletLocation;
 
+    public List<GameObject> childrenSpawners;
+
+    public Animator animator;
+
     private void Start() {
         // Set First stage
         this.bossSpriteRenderer = gameObject.GetComponent<SpriteRenderer>();
@@ -27,15 +31,27 @@ public class Boss : MonoBehaviour
         this.lastStageTransitionHealthValue = 0f;
         this.stage = Stage1.Instance();
         this.stage.enter(this);
+        animator = gameObject.GetComponent<Animator>();
 
+        setChildSpawners();
         teleportToRandomLocation();
         StartCoroutine(damageSleep());
     }
-    
 
+    void setChildSpawners(){
+        foreach(Transform child in transform){
+            childrenSpawners.Add(child.gameObject);
+        }
+        childrenSpawners.Add(flyingBulletLocation);
+    }
 
-    private void FixedUpdate() {
-        transform.position = Vector2.MoveTowards(transform.position, flyingBulletLocation.GetComponent<Transform>().position, 0.05f);
+    bool isOneSpawnerEnabled(){
+        foreach(GameObject child in childrenSpawners){
+            if(child.activeSelf){
+                return true;
+            }
+        }
+        return false;
     }
 
 
@@ -58,7 +74,8 @@ public class Boss : MonoBehaviour
             Destroy(gameObject);
         }
         
-        if(!isAttacking){
+        if(!isOneSpawnerEnabled()){
+            teleportToRandomLocation();
             executeAttack();
         }
     }
@@ -73,7 +90,7 @@ public class Boss : MonoBehaviour
     private void executeAttack(){
         int attackIndex = getRandomAttackIndex();
         // Attack using the random index
-        attacks[attackIndex].attack();
+        attacks[attackIndex].attack(this);
         StartCoroutine(SleepBetweenAttacks());
     }
 
@@ -102,7 +119,7 @@ public class Boss : MonoBehaviour
 
     private void teleportToRandomLocation(){
         int teleportIndex = getRandomIndex(0, teleportLocations.Count);
-        transform.Translate(teleportLocations[teleportIndex].GetComponent<Renderer>().bounds.center);
+        transform.position = teleportLocations[teleportIndex].GetComponent<Transform>().localPosition;
     }
 
     private void OnDrawGizmosSelected() {
@@ -116,5 +133,4 @@ public class Boss : MonoBehaviour
         Gizmos.DrawLine(transform.position, flyingBulletLocation.GetComponent<Transform>().position);
 
     }
-
 }
