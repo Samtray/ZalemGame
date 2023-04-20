@@ -44,6 +44,7 @@ public class MenuController : MonoBehaviour
         tiempoVertical = tiempoHorizontal = 0;
         opcionMenu = opcionMenuAnterior = 1;
         opcionOpciones = opcionOpcionAnterior = 1;
+        PlayerPrefs.DeleteAll();
     }
 
 

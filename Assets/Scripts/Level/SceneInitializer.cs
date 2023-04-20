@@ -19,7 +19,7 @@ public class SceneInitializer : MonoBehaviour
         //Sounds
         foreach (Transform child in sounds.transform)
         {
-            child.GetComponent<AudioSource>().volume = PlayerPrefs.GetFloat("volumenSonido", 0.5f);
+            child.GetComponent<AudioSource>().volume = PlayerPrefs.GetFloat("volumenSonido", 0.3f);
         }
 
         // player position
